@@ -33,6 +33,20 @@ npx wrangler@4 dev
 - Section Insights masih kosong. Isi saat ada laporan atau tulisan.
 - Logo berasal dari raster di PDF. Ganti dengan master vektor bila sudah ada. Animasi logo di hero memakai `img/logo.png` sebagai mask.
 
+## Mockup multi-halaman (qilo.one/altura-mockup)
+
+Versi alternatif dengan halaman terpisah (Home, About, Focus, Portfolio, Insights + 6 artikel, Team, Contact),
+transisi tirai garis antar halaman, dan logo yang digambar satu garis. Semua nama, angka, artikel, dan tanggal
+di dalamnya adalah konten contoh (ada penanda di setiap halaman).
+
+- HTML dihasilkan oleh `mockup-src/build.mjs` (tanpa dependensi). Setelah mengubah konten, jalankan
+  `node mockup-src/build.mjs` lalu commit hasilnya di `public/altura-mockup/`. Workflow deploy tidak menjalankan build.
+- CSS dan JS ditulis langsung di `public/altura-mockup/styles.css` dan `app.js`.
+- Jalur garis logo (`mockup-src/logo-path.json`) diturunkan dari simbol logo di PDF: satu jalur tengah, lebar goresan 39.92.
+  Frame akhir animasi memakai `img/logo.png` asli, jadi bentuk akhirnya identik dengan logo.
+- Route Worker: `qilo.one/altura-mockup` dan `qilo.one/altura-mockup/*` (di `wrangler.jsonc`).
+- Ikon Lucide: `img/icons.svg` (ISC, `img/LICENSE-lucide.txt`).
+
 ## Bahasa
 
 Teks Inggris adalah default di HTML. Terjemahan Indonesia ada di samping tiap teks, pada atribut
