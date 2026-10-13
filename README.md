@@ -29,8 +29,17 @@ npx wrangler@4 dev
 
 ## Yang perlu diisi
 
-- Kontak resmi (email, telepon, alamat): `public/altura/index.html`, section `#kontak`.
-- Section Wawasan masih kosong. Isi saat ada laporan atau tulisan.
-- Logo berasal dari raster di PDF. Ganti dengan master vektor bila sudah ada.
+- Kontak resmi (email, telepon, alamat): `public/altura/index.html`, section `#contact`. Ganti "To be announced" dan hapus atribut `data-id` pada barisnya.
+- Section Insights masih kosong. Isi saat ada laporan atau tulisan.
+- Logo berasal dari raster di PDF. Ganti dengan master vektor bila sudah ada. Animasi logo di hero memakai `img/logo.png` sebagai mask.
 
-Font Inter di `public/altura/fonts/` berlisensi OFL (lihat `OFL-LICENSE.txt`).
+## Bahasa
+
+Teks Inggris adalah default di HTML. Terjemahan Indonesia ada di samping tiap teks, pada atribut
+`data-id` (juga `data-id-aria-label` dan `data-id-content`). Logika toggle EN/ID ada di `app.js`.
+Teks baru cukup diberi `data-id` pada elemen yang tidak berisi ikon.
+
+## Lisensi aset
+
+- Font Inter di `public/altura/fonts/`: OFL (`OFL-LICENSE.txt`).
+- Ikon Lucide di `public/altura/img/icons.svg`: ISC (`img/LICENSE-lucide.txt`).
