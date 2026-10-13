@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "altura",
+  "compatibility_date": "2025-10-01",
+  "assets": {
+    "directory": "./public"
+  },
+  "routes": [
+    { "pattern": "qilo.one/altura", "zone_name": "qilo.one" },
+    { "pattern": "qilo.one/altura/*", "zone_name": "qilo.one" }
+  ],
+  "workers_dev": false,
+  "preview_urls": false
+}
