@@ -91,6 +91,9 @@ const sector = (key) => SECTORS.find((s) => s.key === key);
 
 // All company names, people, and figures below are invented placeholders.
 const PORTFOLIO = [
+  // Real partners (not placeholders)
+  { name: "Patdua", sec: "consumer", ig: "patdua_eatery", logo: "img/patdua-logo.png", img: "img/patdua.png", en: "Neighbourhood eatery.", id: "Kedai makan lingkungan." },
+  { name: "Nema", sec: "consumer", soon: true, en: "Social house and coffee shop.", id: "Social house dan kedai kopi." },
   { name: "Lumora Energy", sec: "infrastructure", since: 2021, en: "Rooftop solar and storage for mid-sized factories.", id: "Panel surya atap dan penyimpanan energi untuk pabrik skala menengah." },
   { name: "Tirta Grid", sec: "infrastructure", since: 2022, en: "Water recycling systems for industrial parks.", id: "Sistem daur ulang air untuk kawasan industri." },
   { name: "Corevia Labs", sec: "technology", since: 2020, en: "Workflow software for logistics operators.", id: "Perangkat lunak alur kerja untuk operator logistik." },
@@ -100,11 +103,11 @@ const PORTFOLIO = [
   { name: "Satya Mills", sec: "agri", since: 2018, en: "Regional grain processing with a traceable supply chain.", id: "Pengolahan biji-bijian regional dengan rantai pasok yang dapat dilacak." },
   { name: "Harbor Health", sec: "health", since: 2023, en: "Outpatient clinics with shared diagnostic services.", id: "Klinik rawat jalan dengan layanan diagnostik bersama." },
   { name: "Tandra Home", sec: "consumer", since: 2020, en: "Furniture and home goods made from certified timber.", id: "Furnitur dan perlengkapan rumah dari kayu bersertifikat." },
-  // Real partners (not placeholders)
-  { name: "Patdua", sec: "consumer", ig: "patdua_eatery", en: "Neighbourhood eatery.", id: "Kedai makan lingkungan." },
-  { name: "Nema", sec: "consumer", soon: true, en: "Social house and coffee shop.", id: "Social house dan kedai kopi." },
 ];
 const initials = (n) => n.split(" ").map((w) => w[0]).join("").slice(0, 2);
+const mark = (c) => c.logo
+  ? `<span class="mono mono-img" aria-hidden="true"><img src="${href(c.logo)}" alt=""></span>`
+  : `<span class="mono" aria-hidden="true">${initials(c.name)}</span>`;
 
 const CATS = {
   report: { icon: "file-text", en: "Report", id: "Laporan" },
@@ -244,7 +247,7 @@ const cta = () => `    <section class="band band-cta">
 const sectorIcon = (key) => icon(sector(key).icon);
 const companyRow = (c) => `<li>
             <a class="row" href="${href("portfolio/")}">
-              <span class="mono" aria-hidden="true">${initials(c.name)}</span>
+              ${mark(c)}
               <span class="row-body"><strong>${c.name}</strong><span>${T(c.en, c.id)}</span></span>
               <span class="row-side">${sectorIcon(c.sec)}${T(sector(c.sec).en, sector(c.sec).id)}</span>
               ${icon("arrow-up-right", "row-arrow")}
@@ -325,7 +328,7 @@ pages.push({
           <a class="link" href="${href("portfolio/")}">${T("Full portfolio", "Portofolio lengkap")}${icon("arrow-right")}</a>
         </div>
         <ul class="rows">
-          ${[PORTFOLIO[0], PORTFOLIO[2], PORTFOLIO[5]].map(companyRow).join("\n          ")}
+          ${PORTFOLIO.slice(0, 3).map(companyRow).join("\n          ")}
         </ul>
       </div>
     </section>
@@ -486,7 +489,8 @@ pages.push({
         </div>
         <ul class="grid-ruled grid-3 tiles">
           ${PORTFOLIO.map((c) => `<li class="tile" data-cat="${c.sec}">
-            <div class="tile-top"><span class="mono" aria-hidden="true">${initials(c.name)}</span><span class="tile-sector">${sectorIcon(c.sec)}${T(sector(c.sec).en, sector(c.sec).id)}</span></div>
+            <div class="tile-top">${mark(c)}<span class="tile-sector">${sectorIcon(c.sec)}${T(sector(c.sec).en, sector(c.sec).id)}</span></div>
+            ${c.img ? `<img class="tile-img" src="${href(c.img)}" alt="${c.name}" loading="lazy">` : ""}
             <h3>${c.name}</h3>
             <p>${T(c.en, c.id)}</p>
             ${c.soon ? `<p class="tile-since">${T("Coming soon", "Segera hadir")}</p>` : c.since ? `<p class="tile-since">${T("Partner since", "Mitra sejak")} ${c.since}</p>` : ""}

@@ -285,6 +285,8 @@ html:not(.js) .replay { display: none; }
   border-radius: 4px; background: var(--teal); color: #fff; font-weight: 500; font-size: 0.9375rem; letter-spacing: 0.02em;
 }
 .mono-lg { width: 56px; height: 56px; font-size: 1.125rem; }
+.mono-img { background: #fff; border: 1px solid var(--line); }
+.mono-img img { width: 100%; height: 100%; object-fit: contain; padding: 4px; }
 
 /* Pita warna */
 .band { padding-block: clamp(56px, 8vw, 104px); }
@@ -366,6 +368,7 @@ html:not(.js) .replay { display: none; }
 .tile { padding: clamp(22px, 3vw, 32px); }
 .tile-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .tile-sector { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: 0.875rem; text-align: right; }
+.tile-img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; margin-top: 22px; border-radius: 4px; background: var(--tint); }
 .tile h3 { margin-top: 22px; }
 .tile p { margin-top: 8px; color: var(--muted); }
 .tile .tile-since { margin-top: 18px; color: var(--teal); font-size: 0.9375rem; font-weight: 500; }
