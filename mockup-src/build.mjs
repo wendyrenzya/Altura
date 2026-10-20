@@ -100,6 +100,9 @@ const PORTFOLIO = [
   { name: "Satya Mills", sec: "agri", since: 2018, en: "Regional grain processing with a traceable supply chain.", id: "Pengolahan biji-bijian regional dengan rantai pasok yang dapat dilacak." },
   { name: "Harbor Health", sec: "health", since: 2023, en: "Outpatient clinics with shared diagnostic services.", id: "Klinik rawat jalan dengan layanan diagnostik bersama." },
   { name: "Tandra Home", sec: "consumer", since: 2020, en: "Furniture and home goods made from certified timber.", id: "Furnitur dan perlengkapan rumah dari kayu bersertifikat." },
+  // Real partners (not placeholders)
+  { name: "Patdua", sec: "consumer", ig: "patdua_eatery", en: "Neighbourhood eatery.", id: "Kedai makan lingkungan." },
+  { name: "Nema", sec: "consumer", soon: true, en: "Social house and coffee shop.", id: "Social house dan kedai kopi." },
 ];
 const initials = (n) => n.split(" ").map((w) => w[0]).join("").slice(0, 2);
 
@@ -486,7 +489,8 @@ pages.push({
             <div class="tile-top"><span class="mono" aria-hidden="true">${initials(c.name)}</span><span class="tile-sector">${sectorIcon(c.sec)}${T(sector(c.sec).en, sector(c.sec).id)}</span></div>
             <h3>${c.name}</h3>
             <p>${T(c.en, c.id)}</p>
-            <p class="tile-since">${T("Partner since", "Mitra sejak")} ${c.since}</p>
+            ${c.soon ? `<p class="tile-since">${T("Coming soon", "Segera hadir")}</p>` : c.since ? `<p class="tile-since">${T("Partner since", "Mitra sejak")} ${c.since}</p>` : ""}
+            ${c.ig ? `<p class="tile-since"><a href="https://instagram.com/${c.ig}" target="_blank" rel="noopener">@${c.ig}</a></p>` : ""}
           </li>`).join("\n          ")}
         </ul>
       </div>
