@@ -38,7 +38,7 @@ const NAV = [
   ["about/", "About", "Tentang"],
   ["focus/", "Focus", "Fokus"],
   ["portfolio/", "Portfolio", "Portofolio"],
-  ["insights/", "Insights", "Wawasan"],
+  ["insights/", "News", "Berita"],
   ["team/", "Team", "Tim"],
   ["contact/", "Contact", "Kontak"],
 ];
@@ -89,7 +89,7 @@ const SECTORS = [
 ];
 const sector = (key) => SECTORS.find((s) => s.key === key);
 
-// Patdua and Nema are real partners. Other names, people, and figures on this site (articles, team) are invented placeholders.
+// Patdua and Nema are real partners. Other names, people, and figures on this site (team) are invented placeholders.
 const PORTFOLIO = [
   { name: "Patdua", slug: "patdua", sec: "consumer", ig: "patdua_eatery", logo: "img/patdua-logo.png", bg: "img/patdua-logo.png", img: "img/patdua-facade.jpg",
     en: "Neighbourhood coffee and eatery.", id: "Kedai kopi dan makan lingkungan.",
@@ -131,35 +131,32 @@ const mark = (c) => c.logo
   : `<span class="mono" aria-hidden="true">${initials(c.name)}</span>`;
 
 const CATS = {
-  report: { icon: "file-text", en: "Report", id: "Laporan" },
-  article: { icon: "newspaper", en: "Article", id: "Artikel" },
-  event: { icon: "calendar-days", en: "Event", id: "Acara" },
+  investment: { icon: "chart-line", en: "Investment", id: "Investasi" },
+  sme: { icon: "shopping-bag", en: "SMEs", id: "UMKM" },
+  policy: { icon: "landmark", en: "Policy", id: "Kebijakan" },
 };
+// Real news, summarised in our own words. Each item links to the original report.
 const ARTICLES = [
-  { slug: "patient-capital-in-practice", cat: "article", d: "2026-09-18", min: 6,
-    tEn: "Patient capital in practice", tId: "Modal sabar dalam praktik",
-    xEn: "What a ten-year view changes about how we choose, support, and review a partnership.",
-    xId: "Apa yang berubah dari cara kami memilih, mendampingi, dan meninjau kemitraan ketika kami memandang sepuluh tahun ke depan." },
-  { slug: "sustainability-framework-v1", cat: "report", d: "2026-08-27", min: 12,
-    tEn: "Our sustainability framework, version 1", tId: "Kerangka keberlanjutan kami, versi 1",
-    xEn: "How we define measurable impact, and which data we require before we make a claim.",
-    xId: "Cara kami mendefinisikan dampak yang terukur, dan data apa yang kami butuhkan sebelum menyampaikan klaim." },
-  { slug: "partner-briefing-2026", cat: "event", d: "2026-11-12", min: 0,
-    tEn: "Partner briefing: long-term value in 2027", tId: "Pertemuan mitra: nilai jangka panjang di 2027",
-    xEn: "An evening for partners and co-investors to review progress and discuss the year ahead.",
-    xId: "Pertemuan malam bagi mitra dan rekan investasi untuk meninjau kemajuan dan membahas tahun mendatang." },
-  { slug: "reading-a-balance-sheet-for-resilience", cat: "article", d: "2026-07-30", min: 5,
-    tEn: "Reading a balance sheet for resilience", tId: "Membaca neraca untuk melihat ketahanan",
-    xEn: "Five questions we ask before we decide whether a business can handle a slow year.",
-    xId: "Lima pertanyaan yang kami ajukan untuk menilai apakah sebuah bisnis sanggup melewati tahun yang lesu." },
-  { slug: "sector-outlook-agriculture-food", cat: "report", d: "2026-06-24", min: 14,
-    tEn: "Sector outlook: agriculture and food", tId: "Prospek sektor: pertanian dan pangan",
-    xEn: "Supply, pricing, and traceability trends that shape our view of food businesses.",
-    xId: "Tren pasokan, harga, dan keterlacakan yang membentuk pandangan kami terhadap bisnis pangan." },
-  { slug: "what-we-look-for-in-a-founding-team", cat: "article", d: "2026-05-14", min: 7,
-    tEn: "What we look for in a founding team", tId: "Yang kami cari dalam tim pendiri",
-    xEn: "Candour, steady execution, and the habit of asking for help early.",
-    xId: "Keterusterangan, eksekusi yang konsisten, dan kebiasaan meminta bantuan sejak dini." },
+  { cat: "sme", d: "2026-10-29", src: "ANTARA", url: "https://www.antaranews.com/berita/5820291/menteri-umkm-kur-menembus-rp262-triliun-jangkau-lebih-4-juta-debitur",
+    tEn: "KUR reaches Rp262 trillion and more than 4 million borrowers", tId: "KUR tembus Rp262 triliun, jangkau lebih dari 4 juta debitur",
+    xEn: "About 1.6 million are first-time borrowers, and 65.9% of lending went to productive sectors. The SME minister wants to hold the 2027 production target near 65%.",
+    xId: "Sekitar 1,6 juta debitur baru, dan 65,9% penyaluran masuk ke sektor produksi. Menteri UMKM ingin target produksi 2027 tetap sekitar 65%." },
+  { cat: "sme", d: "2026-10-28", src: "Kontan", url: "https://keuangan.kontan.co.id/news/kredit-umkm-tumbuh-27-yoy-september-2026",
+    tEn: "SME credit grows 2.7% year on year in September", tId: "Kredit UMKM tumbuh 2,7% yoy pada September",
+    xEn: "Outstanding SME credit stands at Rp1,539.2 trillion, still short of the 7 to 9% year-end target. Investment credit rose 14.9% while working capital fell 2.6%.",
+    xId: "Kredit UMKM mencapai Rp1.539,2 triliun, masih jauh dari target akhir tahun 7 sampai 9%. Kredit investasi naik 14,9% sementara modal kerja turun 2,6%." },
+  { cat: "policy", d: "2026-10-21", src: "Bisnis.com", url: "https://finansial.bisnis.com/read/20261021/11/2014413/breaking-bank-indonesia-tahan-bi-rate-575-pada-rdg-oktober-2026",
+    tEn: "Bank Indonesia holds its policy rate at 5.75%", tId: "Bank Indonesia menahan BI Rate di 5,75%",
+    xEn: "The October board meeting kept the benchmark rate unchanged, with the rupiah's stability as the central bank's stated focus.",
+    xId: "Rapat Dewan Gubernur Oktober mempertahankan suku bunga acuan, dengan stabilitas rupiah sebagai fokus bank sentral." },
+  { cat: "investment", d: "2026-10-20", src: "CNBC Indonesia", url: "https://www.cnbcindonesia.com/news/20261020102140-4-777745/investasi-ri-tembus-rp5287-t-serap-745-ribu-tenaga-kerja/amp",
+    tEn: "Third-quarter investment reaches Rp528.7 trillion, up 7.6%", tId: "Realisasi investasi kuartal III capai Rp528,7 triliun, naik 7,6%",
+    xEn: "Investment realisation for January to September totals Rp1,539.2 trillion and has absorbed about 2.19 million workers, according to the investment ministry.",
+    xId: "Realisasi investasi Januari sampai September totalnya Rp1.539,2 triliun dan menyerap sekitar 2,19 juta tenaga kerja, menurut Kementerian Investasi." },
+  { cat: "investment", d: "2026-10-01", src: "KabarBursa", url: "https://www.kabarbursa.com/makro/danantara-berencana-gunakan-dividen-untuk-biayai-proyek-hilirisasi",
+    tEn: "Danantara plans to channel dividends into downstreaming projects", tId: "Danantara berencana pakai dividen untuk proyek hilirisasi",
+    xEn: "Its chief operating officer says the Rp120 trillion payment to the state is not yet settled, and that dividends are intended to back projects that create jobs.",
+    xId: "COO Danantara menyebut setoran Rp120 triliun ke negara belum final, dan dividen dimaksudkan mendukung proyek yang membuka lapangan kerja." },
 ];
 
 /* ---------- page frame ---------- */
@@ -196,7 +193,7 @@ function frame({ path, nav, titleEn, titleId, descEn, descId, main }) {
   <div class="veil" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
 
   <div class="mock-note" role="note">
-    <div class="wrap">${icon("info")}<p>${T("Design mockup. Every name, figure, article, and date on this site is a placeholder.", "Mockup desain. Semua nama, angka, artikel, dan tanggal di situs ini hanyalah contoh.")}</p></div>
+    <div class="wrap">${icon("info")}<p>${T("Design mockup. Team names and figures are placeholders. News items link to their original sources.", "Mockup desain. Nama tim dan angka hanyalah contoh. Berita menaut ke sumber aslinya.")}</p></div>
   </div>
 
   <header class="site-header">
@@ -236,7 +233,7 @@ ${main}
         </nav>
         <nav aria-label="Work" data-id-aria-label="Kerja kami">
           <h2 class="footer-h">${T("Our work", "Kerja kami")}</h2>
-          <ul>${foot([["focus/", "Focus areas", "Bidang fokus"], ["portfolio/", "Portfolio", "Portofolio"], ["insights/", "Insights", "Wawasan"]])}</ul>
+          <ul>${foot([["focus/", "Focus areas", "Bidang fokus"], ["portfolio/", "Portfolio", "Portofolio"], ["insights/", "News", "Berita"]])}</ul>
         </nav>
       </div>
       <p class="copy">${T("© 2026 PT. Altura Abadi Investama. All rights reserved.", "© 2026 PT. Altura Abadi Investama. Hak cipta dilindungi.")}</p>
@@ -267,9 +264,9 @@ const cta = () => `    <section class="band band-cta">
 
 const sectorIcon = (key) => icon(sector(key).icon);
 const articleRow = (a) => `<li data-cat="${a.cat}">
-            <a class="row row-article" href="${href(`insights/${a.slug}/`)}">
+            <a class="row row-article" href="${a.url}" target="_blank" rel="noopener noreferrer">
               <span class="row-date">${date(a.d)}</span>
-              <span class="row-body"><strong>${T(a.tEn, a.tId)}</strong><span>${T(a.xEn, a.xId)}</span></span>
+              <span class="row-body"><strong>${T(a.tEn, a.tId)}</strong><span>${T(a.xEn, a.xId)}</span><em class="row-src">${a.src}</em></span>
               <span class="row-side">${icon(CATS[a.cat].icon)}${T(CATS[a.cat].en, CATS[a.cat].id)}</span>
               ${icon("arrow-up-right", "row-arrow")}
             </a>
@@ -368,8 +365,8 @@ pages.push({
     <section class="section">
       <div class="wrap">
         <div class="section-head">
-          <h2>${T("Latest insights", "Wawasan terbaru")}</h2>
-          <a class="link" href="${href("insights/")}">${T("All insights", "Semua wawasan")}${icon("arrow-right")}</a>
+          <h2>${T("Latest news", "Berita terbaru")}</h2>
+          <a class="link" href="${href("insights/")}">${T("All news", "Semua berita")}${icon("arrow-right")}</a>
         </div>
         <ul class="rows">
           ${ARTICLES.slice(0, 3).map(articleRow).join("\n          ")}
@@ -527,15 +524,15 @@ ${PORTFOLIO.map((c) => `    <section class="section brand brand-${c.slug}" id="$
 // INSIGHTS (index)
 pages.push({
   path: "insights/", nav: "insights/",
-  titleEn: "Insights | Altura", titleId: "Wawasan | Altura",
-  descEn: "Reports, articles, and events from the Altura team.", descId: "Laporan, artikel, dan acara dari tim Altura.",
-  main: `${hero("Insights", "Wawasan", "Reports, articles, and events from the Altura team.", "Laporan, artikel, dan acara dari tim Altura.")}
+  titleEn: "News | Altura", titleId: "Berita | Altura",
+  descEn: "Current news on investment and SMEs in Indonesia, with links to the original reports.", descId: "Berita terkini investasi dan UMKM di Indonesia, dengan tautan ke laporan aslinya.",
+  main: `${hero("News", "Berita", "Current news on investment and SMEs in Indonesia, with links to the original reports.", "Berita terkini investasi dan UMKM di Indonesia, dengan tautan ke laporan aslinya.")}
 
     <section class="section" data-filter-scope>
       <div class="wrap">
         <div class="filters" role="group" aria-label="Filter by type" data-id-aria-label="Saring menurut jenis">
           <button type="button" data-filter="all" aria-pressed="true">${T("All", "Semua")}</button>
-          ${Object.entries(CATS).map(([k, c]) => `<button type="button" data-filter="${k}" aria-pressed="false">${icon(c.icon)}${T(c.en + "s", c.id)}</button>`).join("\n          ")}
+          ${Object.entries(CATS).map(([k, c]) => `<button type="button" data-filter="${k}" aria-pressed="false">${icon(c.icon)}${T(c.en, c.id)}</button>`).join("\n          ")}
         </div>
         <ul class="rows rows-filter">
           ${ARTICLES.map(articleRow).join("\n          ")}
@@ -545,51 +542,6 @@ pages.push({
 
 ${cta()}`,
 });
-
-// INSIGHTS (articles)
-const BODY = {
-  h1: ["Why this matters", "Mengapa ini penting"],
-  p1: ["Altura writes in plain language. We explain our approach, our process, and our goals, and we share claims of impact and performance only when data supports them.", "Altura menulis dengan bahasa yang lugas. Kami menjelaskan pendekatan, proses, dan tujuan kami, dan kami menyampaikan klaim dampak dan kinerja hanya jika ada data pendukung."],
-  q: ["We do not promise guaranteed returns. We promise a clear process and honest reporting.", "Kami tidak menjanjikan keuntungan pasti. Kami menjanjikan proses yang jelas dan pelaporan yang jujur."],
-  h2: ["What comes next", "Yang akan datang"],
-  p2: ["Real articles would add figures, sources, and the names of the people who contributed. Until then, every name, number, and date on this site is a stand-in.", "Artikel sungguhan akan menambahkan angka, sumber, dan nama orang-orang yang berkontribusi. Sampai saat itu, setiap nama, angka, dan tanggal di situs ini hanyalah pengganti."],
-  intro: ["This page is placeholder content for the website mockup. It shows how a full article would be laid out: a clear headline, a short summary, readable paragraphs, and related reading at the end.", "Halaman ini berisi konten contoh untuk mockup situs. Halaman ini menunjukkan tata letak artikel lengkap: judul yang jelas, ringkasan singkat, paragraf yang mudah dibaca, dan bacaan terkait di akhir."],
-};
-for (const a of ARTICLES) {
-  const related = ARTICLES.filter((r) => r.slug !== a.slug).slice(0, 2);
-  const eventBox = a.cat === "event"
-    ? `<dl class="event-box"><div><dt>${icon("calendar-days")}${T("Date", "Tanggal")}</dt><dd>${date(a.d)}</dd></div><div><dt>${icon("clock")}${T("Time", "Waktu")}</dt><dd>${T("18:00 to 20:00 WIB", "18.00 sampai 20.00 WIB")}</dd></div><div><dt>${icon("map-pin")}${T("Venue", "Lokasi")}</dt><dd>${T("To be announced", "Segera diumumkan")}</dd></div></dl>`
-    : "";
-  const meta = `<p class="article-meta"><span>${icon(CATS[a.cat].icon)}${T(CATS[a.cat].en, CATS[a.cat].id)}</span><span>${date(a.d)}</span>${a.min ? `<span>${icon("clock")}${T(`${a.min} min read`, `${a.min} menit baca`)}</span>` : ""}</p>`;
-  pages.push({
-    path: `insights/${a.slug}/`, nav: "insights/",
-    titleEn: `${a.tEn} | Altura`, titleId: `${a.tId} | Altura`,
-    descEn: a.xEn, descId: a.xId,
-    main: `${hero(a.tEn, a.tId, a.xEn, a.xId)}
-
-    <article class="section">
-      <div class="wrap article">
-        <a class="link back" href="${href("insights/")}">${icon("arrow-left")}${T("All insights", "Semua wawasan")}</a>
-        ${meta}
-        ${eventBox}
-        <div class="prose">
-          <p>${T(BODY.intro[0], BODY.intro[1])}</p>
-          <h2>${T(...BODY.h1)}</h2>
-          <p>${T(...BODY.p1)}</p>
-          <blockquote><p>${T(...BODY.q)}</p></blockquote>
-          <h2>${T(...BODY.h2)}</h2>
-          <p>${T(...BODY.p2)}</p>
-        </div>
-        <section class="related" aria-labelledby="related-h">
-          <h2 id="related-h">${T("Related reading", "Bacaan terkait")}</h2>
-          <ul class="rows">
-            ${related.map(articleRow).join("\n            ")}
-          </ul>
-        </section>
-      </div>
-    </article>`,
-  });
-}
 
 // TEAM
 const TEAM = [

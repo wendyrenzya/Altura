@@ -198,4 +198,73 @@
     }
     if (replay) replay.addEventListener("click", () => (reduce ? showFinal() : play()));
   }
+  /* ---------- Scroll: header, progres, muncul sesuai arah, parallax ---------- */
+
+  (() => {
+    const header = document.querySelector(".site-header");
+    const bar = document.createElement("div");
+    bar.className = "scroll-bar";
+    bar.setAttribute("aria-hidden", "true");
+    document.body.appendChild(bar);
+    const top = document.createElement("button");
+    top.type = "button";
+    top.className = "to-top";
+    top.setAttribute("aria-label", "Back to top");
+    top.setAttribute("data-id-aria-label", "Kembali ke atas");
+    top.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+    top.addEventListener("click", () => window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" }));
+    document.body.appendChild(top);
+
+    let dir = "down";
+    const targets = document.querySelectorAll(
+      "main .section-head, main .section .wrap > .split > *, main .section .wrap > .lead, .home-hero-copy, .rows > li, .grid-ruled > li, .principles li, .facts > div, .gallery > li, .company-head, .contact-list > div, .home-facts > *, .cta-inner > *"
+    );
+    const seen = new Set();
+    let n = 0;
+    for (const el of targets) {
+      if (seen.has(el)) continue;
+      seen.add(el);
+      el.classList.add("rv");
+      el.style.setProperty("--rv-d", `${(n++ % 4) * 80}ms`);
+    }
+    if ("IntersectionObserver" in window && !reduce) {
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          const el = e.target;
+          if (e.isIntersecting) {
+            el.classList.toggle("rv-up", dir === "up" && !el.classList.contains("in"));
+            requestAnimationFrame(() => el.classList.add("in"));
+          } else if (e.boundingClientRect.top > 0) {
+            el.classList.remove("in"); // keluar lewat bawah: siap muncul lagi saat discroll turun
+          }
+        }
+      }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+      for (const el of seen) io.observe(el);
+    } else {
+      for (const el of seen) el.classList.add("in");
+    }
+
+    const curves = document.querySelector(".hero-curves");
+    let last = window.scrollY;
+    let ticking = false;
+    function update() {
+      ticking = false;
+      const y = window.scrollY;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.transform = `scaleX(${max > 0 ? Math.min(1, y / max) : 0})`;
+      const delta = y - last;
+      if (Math.abs(delta) > 6) {
+        dir = delta > 0 ? "down" : "up";
+        if (header) header.classList.toggle("is-hidden", dir === "down" && y > 220);
+        last = y;
+      }
+      if (header) header.classList.toggle("is-stuck", y > 8);
+      top.classList.toggle("show", y > 700);
+      if (curves && !reduce && y < 900) curves.style.setProperty("--par", `${(y * 0.12).toFixed(1)}px`);
+    }
+    window.addEventListener("scroll", () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    update();
+  })();
 })();
