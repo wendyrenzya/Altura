@@ -372,6 +372,21 @@ html:not(.js) .replay { display: none; }
 .tile h3 { margin-top: 22px; }
 .tile p { margin-top: 8px; color: var(--muted); }
 .tile .tile-since { margin-top: 18px; color: var(--teal); font-size: 0.9375rem; font-weight: 500; }
+.tile-img-photo { object-fit: cover; }
+.company-head { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 16px; margin-bottom: clamp(24px, 4vw, 40px); }
+.company-head h2 { margin: 0; }
+.company-head .tile-sector { margin-left: auto; }
+.copy-block { margin-top: 16px; color: var(--muted); }
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: clamp(28px, 5vw, 56px); }
+.gallery li { display: flex; }
+.gallery img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; background: var(--tint); }
+.gallery li:first-child { grid-column: span 2; grid-row: span 2; }
+.gallery li:first-child img { height: 100%; aspect-ratio: auto; }
+@media (max-width: 600px) {
+  .gallery { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .gallery li:first-child { grid-row: auto; }
+  .gallery li:first-child img { height: auto; aspect-ratio: 4 / 3; }
+}
 
 .person .mono-lg { margin-bottom: 18px; }
 .person .role { margin-top: 2px; margin-bottom: 10px; color: var(--teal); font-weight: 500; }

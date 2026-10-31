@@ -89,24 +89,40 @@ const SECTORS = [
 ];
 const sector = (key) => SECTORS.find((s) => s.key === key);
 
-// All company names, people, and figures below are invented placeholders.
+// Patdua and Nema are real partners. Other names, people, and figures on this site (articles, team) are invented placeholders.
 const PORTFOLIO = [
-  // Real partners (not placeholders)
-  { name: "Patdua", sec: "consumer", ig: "patdua_eatery", logo: "img/patdua-logo.png", img: "img/patdua.png", en: "Neighbourhood eatery.", id: "Kedai makan lingkungan.",
-    moreEn: "Patdua Coffee and Eatery on Jl. Rungkut Madya 203, Surabaya, open 09:00-23:00 WIB. The name comes from the owner's house number, 42. Live music, workshops, talkshows and pop-up stores are part of how it brings its young, student-heavy crowd together.",
-    moreId: "Patdua Coffee and Eatery di Jl. Rungkut Madya 203, Surabaya, buka 09:00-23:00 WIB. Namanya berasal dari nomor rumah si pemilik, yaitu 42. Musik langsung, workshop, talkshow, dan pop-up store menjadi cara kafe ini mempertemukan pengunjung mudanya, terutama mahasiswa." },
-  { name: "Nema", sec: "consumer", soon: true, logo: "img/nema-logo.png", img: "img/nema.jpg", en: "Social house and coffee shop.", id: "Social house dan kedai kopi.",
-    moreEn: "A dark-timber interior with a long coffee bar, order and pick-up counters, car and motorbike parking, a musholla, and a smoking room. Planned hours: Mon-Fri 9am-8.30pm, Sat-Sun 8am-9pm.",
-    moreId: "Interior kayu gelap dengan bar kopi panjang, meja pesan dan ambil, parkir mobil dan motor, musholla, serta ruang merokok. Rencana jam buka: Sen-Jum 09.00-20.30, Sab-Min 08.00-21.00." },
-  { name: "Lumora Energy", sec: "infrastructure", since: 2021, en: "Rooftop solar and storage for mid-sized factories.", id: "Panel surya atap dan penyimpanan energi untuk pabrik skala menengah." },
-  { name: "Tirta Grid", sec: "infrastructure", since: 2022, en: "Water recycling systems for industrial parks.", id: "Sistem daur ulang air untuk kawasan industri." },
-  { name: "Corevia Labs", sec: "technology", since: 2020, en: "Workflow software for logistics operators.", id: "Perangkat lunak alur kerja untuk operator logistik." },
-  { name: "Nusa Ledger", sec: "finance", since: 2021, en: "Bookkeeping and credit tools for small merchants.", id: "Pembukuan dan alat kredit untuk pedagang kecil." },
-  { name: "Pasar Hijau", sec: "consumer", since: 2019, en: "Neighbourhood grocery network with local sourcing.", id: "Jaringan toko kelontong lingkungan dengan pasokan lokal." },
-  { name: "Kebun Kita", sec: "agri", since: 2022, en: "Cooperative farming platform linking growers to buyers.", id: "Platform pertanian koperasi yang menghubungkan petani dengan pembeli." },
-  { name: "Satya Mills", sec: "agri", since: 2018, en: "Regional grain processing with a traceable supply chain.", id: "Pengolahan biji-bijian regional dengan rantai pasok yang dapat dilacak." },
-  { name: "Harbor Health", sec: "health", since: 2023, en: "Outpatient clinics with shared diagnostic services.", id: "Klinik rawat jalan dengan layanan diagnostik bersama." },
-  { name: "Tandra Home", sec: "consumer", since: 2020, en: "Furniture and home goods made from certified timber.", id: "Furnitur dan perlengkapan rumah dari kayu bersertifikat." },
+  { name: "Patdua", slug: "patdua", sec: "consumer", ig: "patdua_eatery", logo: "img/patdua-logo.png", img: "img/patdua-facade.jpg",
+    en: "Neighbourhood coffee and eatery.", id: "Kedai kopi dan makan lingkungan.",
+    moreEn: "Patdua Coffee and Eatery sits across from a university campus in Surabaya and draws a young, student-heavy crowd who come to hang out, study, or sit with a drink. It also hosts live music, workshops, talkshows, bazaars, and pop-up stores.",
+    moreId: "Patdua Coffee and Eatery berada di seberang sebuah kampus di Surabaya dan banyak dikunjungi anak muda, terutama mahasiswa, yang datang untuk bersantai, mengerjakan tugas, atau sekadar menikmati minuman. Kafe ini juga mengadakan musik langsung, workshop, talkshow, bazar, dan pop-up store.",
+    facts: [
+      ["Location", "Lokasi", "Jl. Rungkut Madya No. 203, Rungkut Kidul, Surabaya", "Jl. Rungkut Madya No. 203, Rungkut Kidul, Surabaya"],
+      ["Hours", "Jam buka", "09:00 to 23:00 WIB", "09.00 sampai 23.00 WIB"],
+      ["The name", "Asal nama", "Taken from the owner's house number, 42", "Diambil dari nomor rumah si pemilik, yaitu 42"],
+      ["Site area", "Luas lahan", "379.56 m²", "379,56 m²"],
+    ],
+    gallery: [
+      ["img/patdua-facade.jpg", "Patdua storefront at night with its green neon sign"],
+      ["img/patdua-stage.jpg", "Tiered seating and stage area with a palm planted in the steps"],
+      ["img/patdua-lounge.jpg", "Arched lounge corner with bean bags and the Patdua wall mural"],
+      ["img/patdua-dining.jpg", "Dining room with black tables and a large arched window"],
+      ["img/patdua-hall.jpg", "Long dining hall with black tables and green high chairs"],
+      ["img/patdua-cups.jpg", "Three iced drinks in Patdua cups on a marble table"],
+    ] },
+  { name: "Nema", slug: "nema", sec: "consumer", soon: true, logo: "img/nema-logo.png", img: "img/nema.jpg",
+    en: "Social house and coffee shop.", id: "Social house dan kedai kopi.",
+    moreEn: "Dark timber and red tile set the tone around a long coffee bar. Guests order at one end and collect at the pick-up counter, with car and motorbike parking on site, a musholla, and a smoking room.",
+    moreId: "Kayu gelap dan ubin merah membangun suasana di sekitar bar kopi yang panjang. Tamu memesan di satu sisi dan mengambil di meja pengambilan, dengan parkir mobil dan motor di lokasi, musholla, serta ruang merokok.",
+    facts: [
+      ["Status", "Status", "Coming soon", "Segera hadir"],
+      ["Planned hours", "Rencana jam buka", "Mon to Fri 9am to 8.30pm, Sat and Sun 8am to 9pm", "Sen sampai Jum 09.00 sampai 20.30, Sab dan Min 08.00 sampai 21.00"],
+      ["Facilities", "Fasilitas", "Order and pick-up counters, parking, musholla, toilets, smoking room", "Meja pesan dan ambil, parkir, musholla, toilet, ruang merokok"],
+    ],
+    gallery: [
+      ["img/nema.jpg", "Render of the main room with a long timber table and a lounge corner"],
+      ["img/nema-bar.jpg", "Render of the coffee bar with its red tile wall and pick-up counter"],
+      ["img/nema-entrance.jpg", "Render of the entrance looking in toward the bar"],
+    ] },
 ];
 const initials = (n) => n.split(" ").map((w) => w[0]).join("").slice(0, 2);
 const mark = (c) => c.logo
@@ -249,14 +265,6 @@ const cta = () => `    <section class="band band-cta">
     </section>`;
 
 const sectorIcon = (key) => icon(sector(key).icon);
-const companyRow = (c) => `<li>
-            <a class="row" href="${href("portfolio/")}">
-              ${mark(c)}
-              <span class="row-body"><strong>${c.name}</strong><span>${T(c.en, c.id)}</span></span>
-              <span class="row-side">${sectorIcon(c.sec)}${T(sector(c.sec).en, sector(c.sec).id)}</span>
-              ${icon("arrow-up-right", "row-arrow")}
-            </a>
-          </li>`;
 const articleRow = (a) => `<li data-cat="${a.cat}">
             <a class="row row-article" href="${href(`insights/${a.slug}/`)}">
               <span class="row-date">${date(a.d)}</span>
@@ -305,7 +313,6 @@ pages.push({
           <p class="lead">${T("PT. Altura Abadi Investama is an investment and funding company that works with a long-term perspective.", "PT. Altura Abadi Investama adalah perusahaan investasi dan pendanaan yang bekerja dengan perspektif jangka panjang.")}</p>
         </div>
         <dl class="facts">
-          <div><dt>${T("Active since", "Aktif sejak")}</dt><dd>2016</dd></div>
           <div><dt>${T("Focus areas", "Bidang fokus")}</dt><dd>${SECTORS.length}</dd></div>
           <div><dt>${T("Partner companies", "Perusahaan mitra")}</dt><dd>${PORTFOLIO.length}</dd></div>
           <div><dt>${T("Approach", "Pendekatan")}</dt><dd>${T("Long-term and partner-led", "Jangka panjang dan berbasis kemitraan")}</dd></div>
@@ -331,8 +338,14 @@ pages.push({
           <h2>${T("Partners we support", "Mitra yang kami dukung")}</h2>
           <a class="link" href="${href("portfolio/")}">${T("Full portfolio", "Portofolio lengkap")}${icon("arrow-right")}</a>
         </div>
-        <ul class="rows">
-          ${PORTFOLIO.slice(0, 3).map(companyRow).join("\n          ")}
+        <ul class="grid-ruled grid-2 tiles">
+          ${PORTFOLIO.map((c) => `<li class="tile">
+            <div class="tile-top">${mark(c)}<span class="tile-sector">${sectorIcon(c.sec)}${T(sector(c.sec).en, sector(c.sec).id)}</span></div>
+            <img class="tile-img tile-img-photo" src="${href(c.img)}" alt="${c.name}" loading="lazy">
+            <h3>${c.name}</h3>
+            <p>${T(c.en, c.id)}</p>
+            <p class="tile-since"><a href="${href("portfolio/")}#${c.slug}">${T("See " + c.name, "Lihat " + c.name)}</a></p>
+          </li>`).join("\n          ")}
         </ul>
       </div>
     </section>
@@ -448,7 +461,7 @@ pages.push({
         <ul class="sectors">
           ${SECTORS.map((s) => {
             const names = PORTFOLIO.filter((c) => c.sec === s.key).map((c) => c.name).join(", ");
-            return `<li>${icon(s.icon, "sector-icon")}<div><h3>${T(s.en, s.id)}</h3><p>${T(s.longEn, s.longId)}</p><p class="in-portfolio"><strong>${T("In the portfolio", "Dalam portofolio")}</strong> ${names}</p></div></li>`;
+            return `<li>${icon(s.icon, "sector-icon")}<div><h3>${T(s.en, s.id)}</h3><p>${T(s.longEn, s.longId)}</p>${names ? `<p class="in-portfolio"><strong>${T("In the portfolio", "Dalam portofolio")}</strong> ${names}</p>` : ""}</div></li>`;
           }).join("\n          ")}
         </ul>
       </div>
@@ -482,30 +495,29 @@ ${cta()}`,
 pages.push({
   path: "portfolio/", nav: "portfolio/",
   titleEn: "Portfolio | Altura", titleId: "Portofolio | Altura",
-  descEn: "Placeholder companies that show how Altura presents its partners.", descId: "Perusahaan contoh yang menunjukkan cara Altura menampilkan mitranya.",
-  main: `${hero("Our partners", "Mitra kami", "Businesses we support over the long term, across six focus areas.", "Bisnis yang kami dukung dalam jangka panjang, di enam bidang fokus.")}
+  descEn: "Patdua and Nema, the partners Altura supports today.", descId: "Patdua dan Nema, mitra yang saat ini didukung Altura.",
+  main: `${hero("Our partners", "Mitra kami", "Businesses we support over the long term.", "Bisnis yang kami dukung dalam jangka panjang.")}
 
-    <section class="section" data-filter-scope>
+${PORTFOLIO.map((c, n) => `    <section class="section${n % 2 ? " section-tint" : ""}" id="${c.slug}">
       <div class="wrap">
-        <div class="filters" role="group" aria-label="Filter by focus area" data-id-aria-label="Saring menurut bidang fokus">
-          <button type="button" data-filter="all" aria-pressed="true">${T("All", "Semua")}</button>
-          ${SECTORS.map((s) => `<button type="button" data-filter="${s.key}" aria-pressed="false">${T(s.en, s.id)}</button>`).join("\n          ")}
-        </div>
-        <ul class="grid-ruled grid-3 tiles">
-          ${PORTFOLIO.map((c) => `<li class="tile" data-cat="${c.sec}">
-            <div class="tile-top">${mark(c)}<span class="tile-sector">${sectorIcon(c.sec)}${T(sector(c.sec).en, sector(c.sec).id)}</span></div>
-            ${c.img ? `<img class="tile-img" src="${href(c.img)}" alt="${c.name}" loading="lazy">` : ""}
-            <h3>${c.name}</h3>
-            <p>${T(c.en, c.id)}</p>
-            ${c.moreEn ? `<p>${T(c.moreEn, c.moreId)}</p>` : ""}
-            ${c.soon ? `<p class="tile-since">${T("Coming soon", "Segera hadir")}</p>` : c.since ? `<p class="tile-since">${T("Partner since", "Mitra sejak")} ${c.since}</p>` : ""}
+        <div class="company-head">${mark(c)}<h2>${c.name}</h2><span class="tile-sector">${sectorIcon(c.sec)}${T(sector(c.sec).en, sector(c.sec).id)}</span></div>
+        <div class="split">
+          <div>
+            <p class="lead">${T(c.en, c.id)}</p>
+            <p class="copy-block">${T(c.moreEn, c.moreId)}</p>
             ${c.ig ? `<p class="tile-since"><a href="https://instagram.com/${c.ig}" target="_blank" rel="noopener">@${c.ig}</a></p>` : ""}
-          </li>`).join("\n          ")}
+          </div>
+          <dl class="facts">
+            ${c.facts.map((f) => `<div><dt>${T(f[0], f[1])}</dt><dd>${T(f[2], f[3])}</dd></div>`).join("\n            ")}
+          </dl>
+        </div>
+        <ul class="gallery">
+          ${c.gallery.map((g) => `<li><img src="${href(g[0])}" alt="${g[1]}" loading="lazy"></li>`).join("\n          ")}
         </ul>
       </div>
     </section>
 
-${cta()}`,
+`).join("")}${cta()}`,
 });
 
 // INSIGHTS (index)
