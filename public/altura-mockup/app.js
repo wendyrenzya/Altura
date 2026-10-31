@@ -305,4 +305,29 @@
       dlg.addEventListener("close", () => { if (opener) opener.focus({ preventScroll: true }); });
     }
   })();
+  /* ---------- Slide foto ---------- */
+
+  for (const box of document.querySelectorAll("[data-slides]")) {
+    const slides = [...box.querySelectorAll(".slide")];
+    const dots = [...box.querySelectorAll(".slide-dots i")];
+    if (slides.length < 2 || reduce) continue;
+    let i = 0;
+    let timer = 0;
+    const go = (n) => {
+      const prev = slides[i];
+      i = (n + slides.length) % slides.length;
+      for (const s of slides) s.classList.remove("is-off");
+      prev.classList.remove("is-on");
+      prev.classList.add("is-off");
+      slides[i].classList.remove("is-off");
+      slides[i].classList.add("is-on");
+      dots.forEach((d, k) => d.classList.toggle("is-on", k === i));
+    };
+    const start = () => { if (!timer) timer = setInterval(() => go(i + 1), 4200); };
+    const stop = () => { clearInterval(timer); timer = 0; };
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver((es) => es[0].isIntersecting ? start() : stop(), { threshold: 0.3 }).observe(box);
+    } else start();
+    document.addEventListener("visibilitychange", () => (document.hidden ? stop() : start()));
+  }
 })();

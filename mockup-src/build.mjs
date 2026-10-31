@@ -363,7 +363,9 @@ pages.push({
         <ul class="grid-ruled grid-2 tiles">
           ${PORTFOLIO.map((c) => `<li class="tile tile-brand" style="--tile-logo: url('${href(c.bg)}')">
             <div class="tile-top">${mark(c)}<span class="tile-sector">${sectorIcon(c.sec)}${T(sector(c.sec).en, sector(c.sec).id)}</span></div>
-            <img class="tile-img tile-img-photo" src="${href(c.img)}" alt="${c.name}" loading="lazy">
+            ${c.gallery && c.slug === "patdua"
+              ? `<div class="tile-img tile-slides" data-slides role="img" aria-label="${c.name}">${c.gallery.map(([src, alt], k) => `<img class="slide${k === 0 ? " is-on" : ""}" src="${href(src)}" alt="" ${k === 0 ? "" : 'loading="lazy"'}>`).join("")}<span class="slide-dots" aria-hidden="true">${c.gallery.map((_, k) => `<i${k === 0 ? ' class="is-on"' : ""}></i>`).join("")}</span></div>`
+              : `<img class="tile-img tile-img-photo" src="${href(c.img)}" alt="${c.name}" loading="lazy">`}
             <h3>${c.name}</h3>
             <p>${T(c.en, c.id)}</p>
             <p class="tile-since"><a href="${href("portfolio/")}#${c.slug}">${T("See " + c.name, "Lihat " + c.name)}</a></p>
