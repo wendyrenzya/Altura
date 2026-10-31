@@ -229,7 +229,6 @@
     }
     // Dari bagian "Partners" dan seterusnya (Home): masuk dari samping
     const sideSet = new Set();
-    let sideN = 0;
     const partners = document.querySelector(".tiles");
     const from = partners && partners.closest("section");
     if (from) {
@@ -239,20 +238,25 @@
     } else if (!document.querySelector(".home-hero")) {
       for (const el of seen) sideSet.add(el); // halaman dalam: semua isi masuk dari samping
     }
+    // Arah samping ditentukan di awal (keadaan tersembunyi sudah bergeser ke samping),
+    // supaya transisi tidak berangkat dari posisi "dari bawah".
+    const assignSides = () => {
+      let k = 0;
+      for (const el of sideSet) {
+        const r = el.getBoundingClientRect();
+        const wide = r.width > window.innerWidth * 0.6;
+        const left = wide ? (k++ % 2 === 0) : r.left + r.width / 2 < window.innerWidth / 2;
+        el.classList.toggle("rv-l", left);
+        el.classList.toggle("rv-r", !left);
+      }
+    };
+    if (!reduce) assignSides();
     if ("IntersectionObserver" in window && !reduce) {
       const io = new IntersectionObserver((entries) => {
         for (const e of entries) {
           const el = e.target;
           if (e.isIntersecting) {
-            if (sideSet.has(el)) {
-              const r = el.getBoundingClientRect();
-              const wide = r.width > window.innerWidth * 0.6;
-              const left = wide ? (sideN++ % 2 === 0) : r.left + r.width / 2 < window.innerWidth / 2;
-              el.classList.toggle("rv-l", left);
-              el.classList.toggle("rv-r", !left);
-            } else {
-              el.classList.toggle("rv-up", dir === "up" && !el.classList.contains("in"));
-            }
+            if (!sideSet.has(el)) el.classList.toggle("rv-up", dir === "up" && !el.classList.contains("in"));
             requestAnimationFrame(() => el.classList.add("in"));
           } else if (e.boundingClientRect.top > 0) {
             el.classList.remove("in"); // keluar lewat bawah: siap muncul lagi saat discroll turun
