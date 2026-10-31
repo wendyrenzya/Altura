@@ -82,7 +82,7 @@
       setMenu(false);
       try { sessionStorage.setItem("altura-mockup-nav", "1"); } catch (err) { /* storage unavailable */ }
       root.classList.add("is-leaving");
-      setTimeout(() => { location.href = url.href; }, 720);
+      setTimeout(() => { location.href = url.href; }, 900);
     });
 
     window.addEventListener("pageshow", (e) => {

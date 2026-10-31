@@ -190,7 +190,7 @@ function frame({ path, nav, titleEn, titleId, descEn, descId, main }) {
 </head>
 <body>
   <a class="skip" href="#main">${T("Skip to content", "Lewati ke konten")}</a>
-  <div class="veil" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="veil" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><img class="veil-logo" src="${BASE}img/logo.png" alt="" width="900" height="274"></div>
 
   <header class="site-header">
     <div class="wrap header-inner">
