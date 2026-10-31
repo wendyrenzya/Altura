@@ -89,7 +89,7 @@ const SECTORS = [
 ];
 const sector = (key) => SECTORS.find((s) => s.key === key);
 
-// Patdua and Nema are real partners. Other names, people, and figures on this site (team) are invented placeholders.
+// Patdua and Nema are real partners. Timeline and figures elsewhere on this site are placeholders.
 const PORTFOLIO = [
   { name: "Patdua", slug: "patdua", sec: "consumer", ig: "patdua_eatery", logo: "img/patdua-logo.png", bg: "img/patdua-logo.png", img: "img/patdua-facade.jpg",
     en: "Neighbourhood coffee and eatery.", id: "Kedai kopi dan makan lingkungan.",
@@ -191,10 +191,6 @@ function frame({ path, nav, titleEn, titleId, descEn, descId, main }) {
 <body>
   <a class="skip" href="#main">${T("Skip to content", "Lewati ke konten")}</a>
   <div class="veil" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-
-  <div class="mock-note" role="note">
-    <div class="wrap">${icon("info")}<p>${T("Design mockup. Team names and figures are placeholders. News items link to their original sources.", "Mockup desain. Nama tim dan angka hanyalah contoh. Berita menaut ke sumber aslinya.")}</p></div>
-  </div>
 
   <header class="site-header">
     <div class="wrap header-inner">
@@ -544,40 +540,23 @@ ${cta()}`,
 });
 
 // TEAM
-const TEAM = [
-  ["Anindya Prasetyo", "Managing Partner", "Mitra Pengelola", "Leads investment strategy and partner relationships.", "Memimpin strategi investasi dan hubungan dengan mitra."],
-  ["Raka Wiranata", "Chief Investment Officer", "Kepala Investasi", "Oversees sourcing, evaluation, and portfolio decisions.", "Mengawasi pencarian, penilaian, dan keputusan portofolio."],
-  ["Maya Kusuma", "Head of Sustainability", "Kepala Keberlanjutan", "Defines how impact is measured and reported.", "Menetapkan cara dampak diukur dan dilaporkan."],
-  ["Dimas Hartono", "Head of Portfolio Support", "Kepala Dukungan Portofolio", "Works with partner teams on operations and hiring.", "Bekerja dengan tim mitra dalam operasional dan perekrutan."],
-  ["Sekar Lestari", "Chief Financial Officer", "Kepala Keuangan", "Manages reporting, treasury, and financial controls.", "Mengelola pelaporan, perbendaharaan, dan pengendalian keuangan."],
-  ["Bima Santoso", "General Counsel", "Penasihat Hukum Utama", "Leads legal structuring, governance, and compliance.", "Memimpin penataan hukum, tata kelola, dan kepatuhan."],
-];
 pages.push({
   path: "team/", nav: "team/",
   titleEn: "Team | Altura", titleId: "Tim | Altura",
-  descEn: "Placeholder profiles that show how Altura presents its leadership.", descId: "Profil contoh yang menunjukkan cara Altura menampilkan para pemimpinnya.",
-  main: `${hero("The people at Altura", "Orang-orang di Altura", "A small team with deep sector experience and a habit of staying close to partners.", "Tim kecil dengan pengalaman sektor yang dalam dan kebiasaan tetap dekat dengan mitra.")}
+  descEn: "Contact details and office address of PT. Altura Abadi Investama.", descId: "Kontak dan alamat kantor PT. Altura Abadi Investama.",
+  main: `${hero("The Altura team", "Tim Altura", "Reach the team at PT. Altura Abadi Investama directly.", "Hubungi langsung tim PT. Altura Abadi Investama.")}
 
     <section class="section">
-      <div class="wrap">
-        <h2>${T("Leadership", "Kepemimpinan")}</h2>
-        <ul class="grid-ruled grid-3 spaced">
-          ${TEAM.map(([n, ren, rid, ben, bid]) => `<li class="cell person"><span class="mono mono-lg" aria-hidden="true">${initials(n)}</span><h3>${n}</h3><p class="role">${T(ren, rid)}</p><p>${T(ben, bid)}</p></li>`).join("\n          ")}
-        </ul>
-      </div>
-    </section>
-
-    <section class="section section-tint">
       <div class="wrap split">
         <div>
-          <h2>${T("Advisors", "Penasihat")}</h2>
-          <p class="lead">${T("Practitioners who challenge our thinking and open doors.", "Para praktisi yang menantang cara berpikir kami dan membuka jalan.")}</p>
+          <h2>${T("Office and contact", "Kantor dan kontak")}</h2>
+          <p class="lead">PT. Altura Abadi Investama</p>
         </div>
-        <ul class="points">
-          <li>${icon("zap")}<div><h3>${T("Energy and infrastructure", "Energi dan infrastruktur")}</h3><p>${T("Former operators of power and water utilities.", "Mantan operator utilitas listrik dan air.")}</p></div></li>
-          <li>${icon("wheat")}<div><h3>${T("Agriculture and food", "Pertanian dan pangan")}</h3><p>${T("Agronomists and supply-chain specialists.", "Ahli agronomi dan spesialis rantai pasok.")}</p></div></li>
-          <li>${icon("heart-pulse")}<div><h3>${T("Healthcare", "Kesehatan")}</h3><p>${T("Clinicians and health-service managers.", "Klinisi dan manajer layanan kesehatan.")}</p></div></li>
-        </ul>
+        <dl class="contact-list">
+          <div><dt>${icon("mail")}<span>Email</span></dt><dd><a href="mailto:contact@alturainvestama.com">contact@alturainvestama.com</a><br><a href="mailto:reza.pr@alturainvestama.com">reza.pr@alturainvestama.com</a></dd></div>
+          <div><dt>${icon("phone")}${T("Phone", "Telepon")}</dt><dd><a href="tel:+6282132402323">+62 821 3240 2323</a></dd></div>
+          <div><dt>${icon("map-pin")}${T("Address", "Alamat")}</dt><dd>Saraswati AMG Tower, Jl. Dukuh Menanggal No. 1A Lt. 19, Dukuh Menanggal, Kec. Gayungan, Surabaya, Jawa Timur 60234</dd></div>
+        </dl>
       </div>
     </section>
 
