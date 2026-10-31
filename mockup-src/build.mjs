@@ -668,7 +668,6 @@ pages.push({
             <div><dt>${icon("mail")}<span>Email</span></dt><dd><a href="mailto:contact@alturainvestama.com">contact@alturainvestama.com</a><br><a href="mailto:reza.pr@alturainvestama.com">reza.pr@alturainvestama.com</a></dd></div>
             <div><dt>${icon("phone")}${T("Phone", "Telepon")}</dt><dd><a href="tel:+6282132402323">+62 821 3240 2323</a></dd></div>
             <div><dt>${icon("map-pin")}${T("Address", "Alamat")}</dt><dd>Saraswati AMG Tower, Jl. Dukuh Menanggal No. 1A Lt. 19, Dukuh Menanggal, Kec. Gayungan, Surabaya, Jawa Timur 60234</dd></div>
-            <div><dt>${icon("clock")}${T("Hours", "Jam kerja")}</dt><dd>${T("Monday to Friday, 09:00 to 17:00 WIB", "Senin sampai Jumat, 09.00 sampai 17.00 WIB")}</dd></div>
           </dl>
         </div>
       </div>
