@@ -211,9 +211,10 @@ html.is-revealing .veil span { transform: translateY(-101%); transition-property
 .logo-stage { justify-self: end; width: 100%; max-width: 640px; }
 .logo-draw { display: block; width: 100%; height: auto; overflow: visible; }
 .pen {
-  fill: none; stroke: var(--logo); stroke-width: 39.92; stroke-linecap: round; stroke-linejoin: round;
+  fill: none; stroke: var(--logo); stroke-width: 39.92; stroke-linecap: butt; stroke-linejoin: round;
   opacity: 0;
 }
+mask { mask-type: alpha; }
 .pen-dot { fill: var(--gold); opacity: 0; }
 
 .replay {
@@ -373,6 +374,19 @@ html:not(.js) .replay { display: none; }
 .tile p { margin-top: 8px; color: var(--muted); }
 .tile .tile-since { margin-top: 18px; color: var(--teal); font-size: 0.9375rem; font-weight: 500; }
 .tile-img-photo { object-fit: cover; }
+.tile-brand { position: relative; isolation: isolate; overflow: hidden; }
+.tile-brand::before { content: ""; position: absolute; z-index: -1; right: -6%; bottom: -4%; width: 78%; height: 46%; background: var(--tile-logo) right bottom / contain no-repeat; opacity: 0.07; pointer-events: none; }
+.brand-nema { --b-bg: #542D17; --b-ink: #F4E8D8; --b-muted: #D8BFA4; --b-accent: #E8935F; --b-line: rgba(244, 232, 216, 0.22); --b-bar: #983F2C; }
+.brand-patdua { --b-bg: #0D140E; --b-ink: #F1F6EC; --b-muted: #A8BBA1; --b-accent: #7FE03A; --b-line: rgba(241, 246, 236, 0.2); --b-bar: #308818; }
+.brand { background: var(--b-bg); color: var(--b-ink); border-top: 6px solid var(--b-bar); }
+.brand h2, .brand .lead { color: var(--b-ink); }
+.brand .copy-block, .brand .tile-sector { color: var(--b-muted); }
+.brand .facts > div { border-color: var(--b-line); }
+.brand .facts dt { color: var(--b-muted); font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase; align-self: center; }
+.brand .facts dd { color: var(--b-accent); }
+.brand .tile-since, .brand .tile-since a { color: var(--b-accent); }
+.brand .mono-img { border-color: var(--b-line); }
+.brand .gallery img { background: rgba(255, 255, 255, 0.06); }
 .company-head { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 16px; margin-bottom: clamp(24px, 4vw, 40px); }
 .company-head h2 { margin: 0; }
 .company-head .tile-sector { margin-left: auto; }

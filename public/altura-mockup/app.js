@@ -127,7 +127,7 @@
     const clip = svg.querySelector(".word-clip");
     const replay = document.querySelector(".replay");
     const len = pen.getTotalLength();
-    const CAP = 25;          // lebih dari setengah lebar garis, supaya ujung bulat tidak tampak di awal
+    const CAP = 0;           // ujung garis datar (butt), tidak ada kompensasi ujung bulat
     const SYMBOL_W = 659;    // lebar simbol pada koordinat logo
     const FULL_W = 1801;
     const T_LINE = 2600;     // lama garis menggambar simbol

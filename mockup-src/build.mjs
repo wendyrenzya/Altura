@@ -91,7 +91,7 @@ const sector = (key) => SECTORS.find((s) => s.key === key);
 
 // Patdua and Nema are real partners. Other names, people, and figures on this site (articles, team) are invented placeholders.
 const PORTFOLIO = [
-  { name: "Patdua", slug: "patdua", sec: "consumer", ig: "patdua_eatery", logo: "img/patdua-logo.png", img: "img/patdua-facade.jpg",
+  { name: "Patdua", slug: "patdua", sec: "consumer", ig: "patdua_eatery", logo: "img/patdua-logo.png", bg: "img/patdua-logo.png", img: "img/patdua-facade.jpg",
     en: "Neighbourhood coffee and eatery.", id: "Kedai kopi dan makan lingkungan.",
     moreEn: "Patdua Coffee and Eatery sits across from a university campus in Surabaya and draws a young, student-heavy crowd who come to hang out, study, or sit with a drink. It also hosts live music, workshops, talkshows, bazaars, and pop-up stores.",
     moreId: "Patdua Coffee and Eatery berada di seberang sebuah kampus di Surabaya dan banyak dikunjungi anak muda, terutama mahasiswa, yang datang untuk bersantai, mengerjakan tugas, atau sekadar menikmati minuman. Kafe ini juga mengadakan musik langsung, workshop, talkshow, bazar, dan pop-up store.",
@@ -109,7 +109,7 @@ const PORTFOLIO = [
       ["img/patdua-hall.jpg", "Long dining hall with black tables and green high chairs"],
       ["img/patdua-cups.jpg", "Three iced drinks in Patdua cups on a marble table"],
     ] },
-  { name: "Nema", slug: "nema", sec: "consumer", soon: true, logo: "img/nema-logo.png", img: "img/nema.jpg",
+  { name: "Nema", slug: "nema", sec: "consumer", soon: true, logo: "img/nema-logo.png", bg: "img/nema-logo-bg.png", img: "img/nema.jpg",
     en: "Social house and coffee shop.", id: "Social house dan kedai kopi.",
     moreEn: "Dark timber and red tile set the tone around a long coffee bar. Guests order at one end and collect at the pick-up counter, with car and motorbike parking on site, a musholla, and a smoking room.",
     moreId: "Kayu gelap dan ubin merah membangun suasana di sekitar bar kopi yang panjang. Tamu memesan di satu sisi dan mengambil di meja pengambilan, dengan parkir mobil dan motor di lokasi, musholla, serta ruang merokok.",
@@ -297,8 +297,11 @@ pages.push({
         </div>
         <div class="logo-stage">
           <svg class="logo-draw" viewBox="0 0 1801 549" role="img" aria-label="Altura">
-            <defs><clipPath id="word-clip"><rect class="word-clip" x="0" y="0" width="1801" height="549"/></clipPath></defs>
-            <path class="pen" d="${LOGO.d}" data-width="${LOGO.width}"/>
+            <defs>
+              <clipPath id="word-clip"><rect class="word-clip" x="0" y="0" width="1801" height="549"/></clipPath>
+              <mask id="logo-mask" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1801" height="549"><image href="${BASE}img/logo.png" x="0" y="0" width="1801" height="549"/></mask>
+            </defs>
+            <g mask="url(#logo-mask)"><path class="pen" d="${LOGO.d}" data-width="${LOGO.width}"/></g>
             <image class="logo-full" href="${BASE}img/logo.png" x="0" y="0" width="1801" height="549" clip-path="url(#word-clip)"/>
             <circle class="pen-dot" r="11" cx="${LOGO.start[0]}" cy="${LOGO.start[1]}"/>
           </svg>
@@ -340,7 +343,7 @@ pages.push({
           <a class="link" href="${href("portfolio/")}">${T("Full portfolio", "Portofolio lengkap")}${icon("arrow-right")}</a>
         </div>
         <ul class="grid-ruled grid-2 tiles">
-          ${PORTFOLIO.map((c) => `<li class="tile">
+          ${PORTFOLIO.map((c) => `<li class="tile tile-brand" style="--tile-logo: url('${href(c.bg)}')">
             <div class="tile-top">${mark(c)}<span class="tile-sector">${sectorIcon(c.sec)}${T(sector(c.sec).en, sector(c.sec).id)}</span></div>
             <img class="tile-img tile-img-photo" src="${href(c.img)}" alt="${c.name}" loading="lazy">
             <h3>${c.name}</h3>
@@ -499,7 +502,7 @@ pages.push({
   descEn: "Patdua and Nema, the partners Altura supports today.", descId: "Patdua dan Nema, mitra yang saat ini didukung Altura.",
   main: `${hero("Our partners", "Mitra kami", "Businesses we support over the long term.", "Bisnis yang kami dukung dalam jangka panjang.")}
 
-${PORTFOLIO.map((c, n) => `    <section class="section${n % 2 ? " section-tint" : ""}" id="${c.slug}">
+${PORTFOLIO.map((c) => `    <section class="section brand brand-${c.slug}" id="${c.slug}">
       <div class="wrap">
         <div class="company-head">${mark(c)}<h2>${c.name}</h2><span class="tile-sector">${sectorIcon(c.sec)}${T(sector(c.sec).en, sector(c.sec).id)}</span></div>
         <div class="split">
