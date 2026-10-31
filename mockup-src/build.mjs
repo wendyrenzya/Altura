@@ -560,6 +560,20 @@ pages.push({
       </div>
     </section>
 
+    <section class="section section-tint">
+      <div class="wrap split">
+        <div>
+          <h2>${T("Advisors", "Penasihat")}</h2>
+          <p class="lead">${T("Practitioners who challenge our thinking and open doors.", "Para praktisi yang menantang cara berpikir kami dan membuka jalan.")}</p>
+        </div>
+        <ul class="points">
+          <li>${icon("zap")}<div><h3>${T("Energy and infrastructure", "Energi dan infrastruktur")}</h3><p>${T("Former operators of power and water utilities.", "Mantan operator utilitas listrik dan air.")}</p></div></li>
+          <li>${icon("wheat")}<div><h3>${T("Agriculture and food", "Pertanian dan pangan")}</h3><p>${T("Agronomists and supply-chain specialists.", "Ahli agronomi dan spesialis rantai pasok.")}</p></div></li>
+          <li>${icon("heart-pulse")}<div><h3>${T("Healthcare", "Kesehatan")}</h3><p>${T("Clinicians and health-service managers.", "Klinisi dan manajer layanan kesehatan.")}</p></div></li>
+        </ul>
+      </div>
+    </section>
+
 ${cta()}`,
 });
 
