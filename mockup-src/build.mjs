@@ -96,7 +96,7 @@ const PORTFOLIO = [
     moreEn: "Patdua Coffee and Eatery sits across from a university campus in Surabaya and draws a young, student-heavy crowd who come to hang out, study, or sit with a drink. It also hosts live music, workshops, talkshows, bazaars, and pop-up stores.",
     moreId: "Patdua Coffee and Eatery berada di seberang sebuah kampus di Surabaya dan banyak dikunjungi anak muda, terutama mahasiswa, yang datang untuk bersantai, mengerjakan tugas, atau sekadar menikmati minuman. Kafe ini juga mengadakan musik langsung, workshop, talkshow, bazar, dan pop-up store.",
     facts: [
-      ["Location", "Lokasi", "Jl. Rungkut Madya No. 203, Rungkut Kidul, Surabaya", "Jl. Rungkut Madya No. 203, Rungkut Kidul, Surabaya"],
+      ["Location", "Lokasi", "Jl. Rungkut Madya No. 203, Rungkut Kidul, Kec. Rungkut, Surabaya, Jawa Timur 60294", "Jl. Rungkut Madya No. 203, Rungkut Kidul, Kec. Rungkut, Surabaya, Jawa Timur 60294"],
       ["Hours", "Jam buka", "09:00 to 23:00 WIB", "09.00 sampai 23.00 WIB"],
       ["The name", "Asal nama", "Taken from the owner's house number, 42", "Diambil dari nomor rumah si pemilik, yaitu 42"],
       ["Site area", "Luas lahan", "379.56 m²", "379,56 m²"],
@@ -114,6 +114,7 @@ const PORTFOLIO = [
     moreEn: "Dark timber and red tile set the tone around a long coffee bar. Guests order at one end and collect at the pick-up counter, with car and motorbike parking on site, a musholla, and a smoking room.",
     moreId: "Kayu gelap dan ubin merah membangun suasana di sekitar bar kopi yang panjang. Tamu memesan di satu sisi dan mengambil di meja pengambilan, dengan parkir mobil dan motor di lokasi, musholla, serta ruang merokok.",
     facts: [
+      ["Location", "Lokasi", "Jl. Trunojoyo No. 29, RW 1, Sidoklumpuk, Kec. Sidoarjo, Kabupaten Sidoarjo, Jawa Timur 61218", "Jl. Trunojoyo No. 29, RW 1, Sidoklumpuk, Kec. Sidoarjo, Kabupaten Sidoarjo, Jawa Timur 61218"],
       ["Status", "Status", "Coming soon", "Segera hadir"],
       ["Planned hours", "Rencana jam buka", "Mon to Fri 9am to 8.30pm, Sat and Sun 8am to 9pm", "Sen sampai Jum 09.00 sampai 20.30, Sab dan Min 08.00 sampai 21.00"],
       ["Facilities", "Fasilitas", "Order and pick-up counters, parking, musholla, toilets, smoking room", "Meja pesan dan ambil, parkir, musholla, toilet, ruang merokok"],
@@ -664,9 +665,9 @@ pages.push({
         <div>
           <h2>${T("Details", "Detail")}</h2>
           <dl class="contact-list">
-            <div><dt>${icon("mail")}<span>Email</span></dt><dd>hello@altura.example</dd></div>
-            <div><dt>${icon("phone")}${T("Phone", "Telepon")}</dt><dd>+62 00 0000 0000</dd></div>
-            <div><dt>${icon("map-pin")}${T("Address", "Alamat")}</dt><dd>${T("Office address to be announced", "Alamat kantor segera diumumkan")}</dd></div>
+            <div><dt>${icon("mail")}<span>Email</span></dt><dd><a href="mailto:contact@alturainvestama.com">contact@alturainvestama.com</a><br><a href="mailto:reza.pr@alturainvestama.com">reza.pr@alturainvestama.com</a></dd></div>
+            <div><dt>${icon("phone")}${T("Phone", "Telepon")}</dt><dd><a href="tel:+6282132402323">+62 821 3240 2323</a></dd></div>
+            <div><dt>${icon("map-pin")}${T("Address", "Alamat")}</dt><dd>Saraswati AMG Tower, Jl. Dukuh Menanggal No. 1A Lt. 19, Dukuh Menanggal, Kec. Gayungan, Surabaya, Jawa Timur 60234</dd></div>
             <div><dt>${icon("clock")}${T("Hours", "Jam kerja")}</dt><dd>${T("Monday to Friday, 09:00 to 17:00 WIB", "Senin sampai Jumat, 09.00 sampai 17.00 WIB")}</dd></div>
           </dl>
         </div>
