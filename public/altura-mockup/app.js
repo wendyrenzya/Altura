@@ -217,7 +217,7 @@
 
     let dir = "down";
     const targets = document.querySelectorAll(
-      "main .section-head, main .section .wrap > .split > *, main .section .wrap > .lead, .home-hero-copy, .rows > li, .grid-ruled > li, .principles li, .facts > div, .gallery > li, .company-head, .contact-list > div, .home-facts > *, .cta-inner > *"
+      "main .section-head, main .section .wrap > .split > *, main .section .wrap > .lead, .home-hero-copy, .rows > li, .grid-ruled > li, .principles li, .facts > div, .gallery > li, .company-head, .contact-list > div, .home-facts > *, .cta-inner > *, main .section .wrap > h2, .sectors > li, .steps > li, .points > li, .faq > details"
     );
     const seen = new Set();
     let n = 0;
@@ -236,6 +236,8 @@
       for (const el of seen) {
         if (from.contains(el) || (from.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING)) sideSet.add(el);
       }
+    } else if (!document.querySelector(".home-hero")) {
+      for (const el of seen) sideSet.add(el); // halaman dalam: semua isi masuk dari samping
     }
     if ("IntersectionObserver" in window && !reduce) {
       const io = new IntersectionObserver((entries) => {
