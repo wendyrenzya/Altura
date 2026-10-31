@@ -227,12 +227,30 @@
       el.classList.add("rv");
       el.style.setProperty("--rv-d", `${(n++ % 4) * 80}ms`);
     }
+    // Dari bagian "Partners" dan seterusnya (Home): masuk dari samping
+    const sideSet = new Set();
+    let sideN = 0;
+    const partners = document.querySelector(".tiles");
+    const from = partners && partners.closest("section");
+    if (from) {
+      for (const el of seen) {
+        if (from.contains(el) || (from.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING)) sideSet.add(el);
+      }
+    }
     if ("IntersectionObserver" in window && !reduce) {
       const io = new IntersectionObserver((entries) => {
         for (const e of entries) {
           const el = e.target;
           if (e.isIntersecting) {
-            el.classList.toggle("rv-up", dir === "up" && !el.classList.contains("in"));
+            if (sideSet.has(el)) {
+              const r = el.getBoundingClientRect();
+              const wide = r.width > window.innerWidth * 0.6;
+              const left = wide ? (sideN++ % 2 === 0) : r.left + r.width / 2 < window.innerWidth / 2;
+              el.classList.toggle("rv-l", left);
+              el.classList.toggle("rv-r", !left);
+            } else {
+              el.classList.toggle("rv-up", dir === "up" && !el.classList.contains("in"));
+            }
             requestAnimationFrame(() => el.classList.add("in"));
           } else if (e.boundingClientRect.top > 0) {
             el.classList.remove("in"); // keluar lewat bawah: siap muncul lagi saat discroll turun
