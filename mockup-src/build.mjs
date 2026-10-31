@@ -92,8 +92,12 @@ const sector = (key) => SECTORS.find((s) => s.key === key);
 // All company names, people, and figures below are invented placeholders.
 const PORTFOLIO = [
   // Real partners (not placeholders)
-  { name: "Patdua", sec: "consumer", ig: "patdua_eatery", logo: "img/patdua-logo.png", img: "img/patdua.png", en: "Neighbourhood eatery.", id: "Kedai makan lingkungan." },
-  { name: "Nema", sec: "consumer", soon: true, en: "Social house and coffee shop.", id: "Social house dan kedai kopi." },
+  { name: "Patdua", sec: "consumer", ig: "patdua_eatery", logo: "img/patdua-logo.png", img: "img/patdua.png", en: "Neighbourhood eatery.", id: "Kedai makan lingkungan.",
+    moreEn: "Patdua Coffee and Eatery on Jl. Rungkut Madya 203, Surabaya, open 09:00-23:00 WIB. The name comes from the owner's house number, 42. Live music, workshops, talkshows and pop-up stores are part of how it brings its young, student-heavy crowd together.",
+    moreId: "Patdua Coffee and Eatery di Jl. Rungkut Madya 203, Surabaya, buka 09:00-23:00 WIB. Namanya berasal dari nomor rumah si pemilik, yaitu 42. Musik langsung, workshop, talkshow, dan pop-up store menjadi cara kafe ini mempertemukan pengunjung mudanya, terutama mahasiswa." },
+  { name: "Nema", sec: "consumer", soon: true, logo: "img/nema-logo.png", img: "img/nema.jpg", en: "Social house and coffee shop.", id: "Social house dan kedai kopi.",
+    moreEn: "A dark-timber interior with a long coffee bar, order and pick-up counters, car and motorbike parking, a musholla, and a smoking room. Planned hours: Mon-Fri 9am-8.30pm, Sat-Sun 8am-9pm.",
+    moreId: "Interior kayu gelap dengan bar kopi panjang, meja pesan dan ambil, parkir mobil dan motor, musholla, serta ruang merokok. Rencana jam buka: Sen-Jum 09.00-20.30, Sab-Min 08.00-21.00." },
   { name: "Lumora Energy", sec: "infrastructure", since: 2021, en: "Rooftop solar and storage for mid-sized factories.", id: "Panel surya atap dan penyimpanan energi untuk pabrik skala menengah." },
   { name: "Tirta Grid", sec: "infrastructure", since: 2022, en: "Water recycling systems for industrial parks.", id: "Sistem daur ulang air untuk kawasan industri." },
   { name: "Corevia Labs", sec: "technology", since: 2020, en: "Workflow software for logistics operators.", id: "Perangkat lunak alur kerja untuk operator logistik." },
@@ -493,6 +497,7 @@ pages.push({
             ${c.img ? `<img class="tile-img" src="${href(c.img)}" alt="${c.name}" loading="lazy">` : ""}
             <h3>${c.name}</h3>
             <p>${T(c.en, c.id)}</p>
+            ${c.moreEn ? `<p>${T(c.moreEn, c.moreId)}</p>` : ""}
             ${c.soon ? `<p class="tile-since">${T("Coming soon", "Segera hadir")}</p>` : c.since ? `<p class="tile-since">${T("Partner since", "Mitra sejak")} ${c.since}</p>` : ""}
             ${c.ig ? `<p class="tile-since"><a href="https://instagram.com/${c.ig}" target="_blank" rel="noopener">@${c.ig}</a></p>` : ""}
           </li>`).join("\n          ")}
