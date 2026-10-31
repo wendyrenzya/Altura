@@ -267,4 +267,24 @@
     }, { passive: true });
     update();
   })();
+  /* ---------- Popup berita ---------- */
+
+  (() => {
+    let opener = null;
+    document.addEventListener("click", (e) => {
+      const open = e.target.closest("[data-news]");
+      if (open) {
+        const dlg = document.getElementById(open.dataset.news);
+        if (dlg && dlg.showModal) { opener = open; dlg.showModal(); }
+        return;
+      }
+      const dlg = e.target.closest("dialog.news-modal");
+      if (!dlg) return;
+      if (e.target.closest("[data-close]")) { dlg.close(); return; }
+      if (e.target === dlg) dlg.close(); // klik latar
+    });
+    for (const dlg of document.querySelectorAll("dialog.news-modal")) {
+      dlg.addEventListener("close", () => { if (opener) opener.focus({ preventScroll: true }); });
+    }
+  })();
 })();

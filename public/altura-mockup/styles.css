@@ -524,3 +524,57 @@ li:hover > .cell-icon, .principles li:hover .icon { transform: translateY(-3px) 
   .js .site-header { transition: none; }
   .hero-curves { transform: none; }
 }
+
+/* ---------- Kartu berita (Home) ---------- */
+button.row { width: 100%; text-align: left; background: none; border: 0; cursor: pointer; color: inherit; }
+.ncards { display: grid; grid-template-columns: 1.25fr 1fr; grid-template-rows: 1fr 1fr; gap: 20px; }
+.ncard { position: relative; display: flex; }
+.ncard > button { position: relative; display: flex; flex-direction: column; gap: 12px; width: 100%; padding: clamp(22px, 3vw, 32px); text-align: left; cursor: pointer; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; color: var(--slate); overflow: hidden; transition: transform 0.5s var(--ease), box-shadow 0.4s ease, border-color 0.3s ease; }
+.ncard > button::before { content: ""; position: absolute; top: 0; left: 0; width: 0; height: 3px; background: linear-gradient(90deg, var(--teal), var(--sage), var(--gold)); transition: width 0.6s var(--ease); }
+.ncard > button:hover, .ncard > button:focus-visible { transform: translateY(-5px); border-color: var(--sage); box-shadow: 0 22px 40px -26px rgba(15, 89, 100, 0.55); }
+.ncard > button:hover::before, .ncard > button:focus-visible::before { width: 100%; }
+.ncard-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.ncard-no { font-size: 0.8125rem; letter-spacing: 0.16em; color: var(--gold); font-weight: 500; }
+.ncard-cat { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px 4px 10px; border: 1px solid var(--line); border-radius: 999px; font-size: 0.8125rem; color: var(--muted); }
+.ncard-cat svg { width: 14px; height: 14px; color: var(--teal); }
+.ncard-title { font-size: 1.1875rem; font-weight: 500; line-height: 1.35; text-wrap: balance; }
+.ncard-text { color: var(--muted); font-size: 0.96875rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.ncard-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); font-size: 0.8125rem; letter-spacing: 0.04em; color: var(--muted); }
+.ncard-go { display: inline-flex; align-items: center; gap: 6px; color: var(--teal); font-weight: 500; }
+.ncard-go svg { width: 16px; height: 16px; transition: transform 0.4s var(--ease); }
+.ncard > button:hover .ncard-go svg { transform: translate(3px, -3px); }
+.ncard-big { grid-row: 1 / span 2; }
+.ncard-big > button { background: var(--teal); color: #fff; border-color: var(--teal-dark); justify-content: flex-start; background-image: radial-gradient(rgba(155, 184, 165, 0.2) 1px, transparent 1.4px); background-size: 20px 20px; }
+.ncard-big > button::after { content: ""; position: absolute; right: -60px; bottom: -70px; width: 320px; height: 320px; border: 10px solid rgba(155, 184, 165, 0.22); border-radius: 50%; border-right-color: transparent; border-top-color: transparent; transform: rotate(-20deg); pointer-events: none; transition: transform 1s var(--ease); }
+.ncard-big > button:hover::after { transform: rotate(10deg) scale(1.06); }
+.ncard-big .ncard-cat { border-color: rgba(255, 255, 255, 0.3); color: rgba(255, 255, 255, 0.9); }
+.ncard-big .ncard-cat svg, .ncard-big .ncard-go { color: var(--sage); }
+.ncard-big .ncard-title { font-size: clamp(1.5rem, 2.6vw, 2.125rem); line-height: 1.2; letter-spacing: -0.015em; margin-top: auto; }
+.ncard-big .ncard-text { color: rgba(255, 255, 255, 0.86); -webkit-line-clamp: 4; }
+.ncard-big .ncard-foot { border-top-color: rgba(255, 255, 255, 0.22); color: rgba(255, 255, 255, 0.78); }
+@media (max-width: 860px) { .ncards { grid-template-columns: 1fr; grid-template-rows: auto; } .ncard-big { grid-row: auto; } .ncard-big .ncard-title { margin-top: 24px; } }
+
+/* ---------- Popup berita ---------- */
+html:has(dialog[open]) { overflow: hidden; }
+.news-modal { width: min(640px, calc(100vw - 32px)); max-height: calc(100vh - 32px); padding: 0; border: 0; border-radius: 10px; background: var(--paper); color: var(--slate); overflow: auto; box-shadow: 0 40px 80px -30px rgba(8, 34, 40, 0.7); }
+.news-modal[open] { animation: nm-in 0.5s var(--ease); }
+.news-modal::backdrop { background: rgba(8, 34, 40, 0.62); backdrop-filter: blur(4px); animation: nm-fade 0.4s ease; }
+@keyframes nm-in { from { opacity: 0; transform: translateY(28px) scale(0.97); } to { opacity: 1; transform: none; } }
+@keyframes nm-fade { from { opacity: 0; } to { opacity: 1; } }
+.nm-head { position: relative; overflow: hidden; background: var(--teal); color: #fff; padding: 30px clamp(22px, 4vw, 36px) 30px; border-bottom: 3px solid var(--gold); }
+.nm-curves { position: absolute; right: -30px; bottom: -10px; width: 70%; height: auto; fill: none; stroke: var(--sage); stroke-width: 6; opacity: 0.45; pointer-events: none; }
+.nm-curves .g { stroke: var(--gold); stroke-width: 2; opacity: 0.9; }
+.nm-head h2 { position: relative; max-width: 24ch; margin-top: 14px; font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.22; letter-spacing: -0.015em; }
+.nm-meta { position: relative; display: flex; flex-wrap: wrap; gap: 8px 16px; padding-right: 48px; font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255, 255, 255, 0.82); }
+.nm-meta span { display: inline-flex; align-items: center; gap: 6px; }
+.nm-meta svg { width: 14px; height: 14px; color: var(--sage); }
+.nm-close { position: absolute; z-index: 1; top: 14px; right: 14px; width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid rgba(255, 255, 255, 0.35); border-radius: 50%; background: transparent; color: #fff; cursor: pointer; transition: background-color 0.2s ease, transform 0.4s var(--ease); }
+.nm-close:hover { background: rgba(255, 255, 255, 0.16); transform: rotate(90deg); }
+.nm-close svg { width: 18px; height: 18px; }
+.nm-body { padding: clamp(22px, 4vw, 34px); }
+.nm-body > p:first-child { font-size: 1.125rem; line-height: 1.7; }
+.nm-src { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9375rem; }
+.nm-src strong { color: var(--teal); font-weight: 500; }
+.nm-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: 24px; }
+.nm-dismiss { background: none; border: 0; cursor: pointer; }
+@media (prefers-reduced-motion: reduce) { .news-modal[open], .news-modal::backdrop { animation: none; } }

@@ -259,14 +259,39 @@ const cta = () => `    <section class="band band-cta">
     </section>`;
 
 const sectorIcon = (key) => icon(sector(key).icon);
+const nid = (a) => `news-${ARTICLES.indexOf(a) + 1}`;
 const articleRow = (a) => `<li data-cat="${a.cat}">
-            <a class="row row-article" href="${a.url}" target="_blank" rel="noopener noreferrer">
+            <button type="button" class="row row-article" data-news="${nid(a)}" aria-haspopup="dialog">
               <span class="row-date">${date(a.d)}</span>
               <span class="row-body"><strong>${T(a.tEn, a.tId)}</strong><span>${T(a.xEn, a.xId)}</span><em class="row-src">${a.src}</em></span>
               <span class="row-side">${icon(CATS[a.cat].icon)}${T(CATS[a.cat].en, CATS[a.cat].id)}</span>
               ${icon("arrow-up-right", "row-arrow")}
-            </a>
+            </button>
           </li>`;
+const newsCard = (a, i, big) => `<li class="ncard${big ? " ncard-big" : ""}">
+            <button type="button" data-news="${nid(a)}" aria-haspopup="dialog">
+              <span class="ncard-top"><span class="ncard-no">0${i + 1}</span><span class="ncard-cat">${icon(CATS[a.cat].icon)}${T(CATS[a.cat].en, CATS[a.cat].id)}</span></span>
+              <strong class="ncard-title">${T(a.tEn, a.tId)}</strong>
+              <span class="ncard-text">${T(a.xEn, a.xId)}</span>
+              <span class="ncard-foot"><span>${date(a.d)} · ${a.src}</span><span class="ncard-go">${T("Read", "Baca")}${icon("arrow-up-right")}</span></span>
+            </button>
+          </li>`;
+const newsModals = (list) => list.map((a) => `<dialog class="news-modal" id="${nid(a)}" aria-labelledby="${nid(a)}-t">
+      <div class="nm-head">
+        <svg class="nm-curves" viewBox="0 0 720 260" aria-hidden="true" focusable="false"><path d="M-10 170 C80 70 200 40 320 70 C440 100 520 150 620 160 C680 166 710 150 740 130"/><path class="g" d="M-10 236 C250 252 470 222 600 140 C660 100 700 60 740 30"/></svg>
+        <button type="button" class="nm-close" data-close aria-label="Close" data-id-aria-label="Tutup">${icon("x")}</button>
+        <p class="nm-meta"><span>${icon(CATS[a.cat].icon)}${T(CATS[a.cat].en, CATS[a.cat].id)}</span><span>${date(a.d)}</span></p>
+        <h2 id="${nid(a)}-t">${T(a.tEn, a.tId)}</h2>
+      </div>
+      <div class="nm-body">
+        <p>${T(a.xEn, a.xId)}</p>
+        <p class="nm-src">${T("Source", "Sumber")}: <strong>${a.src}</strong></p>
+        <div class="nm-actions">
+          <a class="btn" href="${a.url}" target="_blank" rel="noopener noreferrer">${T("Read the original report", "Baca laporan aslinya")}${icon("arrow-up-right")}</a>
+          <button type="button" class="link nm-dismiss" data-close>${T("Close", "Tutup")}</button>
+        </div>
+      </div>
+    </dialog>`).join("\n    ");
 
 /* ---------- pages ---------- */
 
@@ -364,11 +389,12 @@ pages.push({
           <h2>${T("Latest news", "Berita terbaru")}</h2>
           <a class="link" href="${href("insights/")}">${T("All news", "Semua berita")}${icon("arrow-right")}</a>
         </div>
-        <ul class="rows">
-          ${ARTICLES.slice(0, 3).map(articleRow).join("\n          ")}
+        <ul class="ncards">
+          ${ARTICLES.slice(0, 3).map((a, i) => newsCard(a, i, i === 0)).join("\n          ")}
         </ul>
       </div>
     </section>
+    ${newsModals(ARTICLES.slice(0, 3))}
 
 ${cta()}`,
 });
@@ -535,6 +561,7 @@ pages.push({
         </ul>
       </div>
     </section>
+    ${newsModals(ARTICLES)}
 
 ${cta()}`,
 });
