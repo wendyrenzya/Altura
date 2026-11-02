@@ -637,8 +637,8 @@ pages.push({
               </select>
             </label>
             <label>${T("Message", "Pesan")}<textarea name="message" rows="5" required></textarea></label>
-            <button class="btn" type="submit">${icon("send")}${T("Send message", "Kirim pesan")}</button>
-            <p class="form-status" role="status" data-en="This is a mockup. Nothing was sent." data-id="Ini hanyalah mockup. Tidak ada pesan yang terkirim." hidden></p>
+            <button class="btn" type="submit">${icon("send")}${T("Send via WhatsApp", "Kirim lewat WhatsApp")}</button>
+            <p class="form-status" role="status" data-en="Opening WhatsApp. Press send there to deliver your message." data-id="Membuka WhatsApp. Tekan kirim di sana agar pesan terkirim." hidden></p>
           </form>
         </div>
         <div>

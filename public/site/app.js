@@ -104,16 +104,28 @@
     }
   }
 
-  /* ---------- Formulir kontak (mockup: tidak mengirim apa pun) ---------- */
+  /* ---------- Formulir kontak: dikirim lewat WhatsApp ---------- */
 
+  const WA_NUMBER = "6282132402323";
   const form = document.querySelector(".form");
   if (form) {
     const status = form.querySelector(".form-status");
-    swap(status, "text", root.lang === "id" ? "id" : "en");
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
+      const f = new FormData(form);
+      const text = [
+        "Halo Altura, saya menghubungi lewat website.",
+        "",
+        `Nama: ${f.get("name")}`,
+        `Email: ${f.get("email")}`,
+        `Topik: ${f.get("topic")}`,
+        "",
+        `${f.get("message")}`,
+      ].join("\n");
       status.hidden = false;
+      swap(status, "text", root.lang === "id" ? "id" : "en");
+      window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
       form.reset();
     });
   }
