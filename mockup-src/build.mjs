@@ -2,14 +2,16 @@
 // Run: node mockup-src/build.mjs   (no dependencies)
 // CSS, JS, fonts and icons are authored directly in public/altura-mockup/.
 
-import { mkdirSync, writeFileSync, readFileSync } from "node:fs";
+import { mkdirSync, writeFileSync, readFileSync, cpSync, readdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const here = dirname(fileURLToPath(import.meta.url));
-const OUT = join(here, "..", "public", "altura-mockup");
-const BASE = "/altura-mockup/";
-const SITE = "https://qilo.one";
+// ROOT=1 membangun versi domain utama (alturainvestama.com): tautan di akar "/", keluaran public/site/.
+const ROOT = process.env.ROOT === "1";
+const OUT = join(here, "..", "public", ROOT ? "site" : "altura-mockup");
+const BASE = ROOT ? "/" : "/altura-mockup/";
+const SITE = ROOT ? "https://alturainvestama.com" : "https://qilo.one";
 const LOGO = JSON.parse(readFileSync(join(here, "logo-path.json"), "utf8"));
 
 /* ---------- helpers ---------- */
@@ -179,7 +181,7 @@ function frame({ path, nav, titleEn, titleId, descEn, descId, main }) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title data-id="${escAttr(titleId)}">${escText(titleEn)}</title>
   <meta name="description" content="${escAttr(descEn)}" data-id-content="${escAttr(descId)}">
-  <meta name="robots" content="noindex">
+  ${ROOT ? "" : '<meta name="robots" content="noindex">'}
   <meta name="theme-color" content="#0F5964">
   <link rel="canonical" href="${SITE}${href(path)}">
   <link rel="icon" type="image/png" href="${BASE}img/favicon.png">
@@ -666,5 +668,17 @@ for (const p of pages) {
   const file = join(OUT, p.path, "index.html");
   mkdirSync(dirname(file), { recursive: true });
   writeFileSync(file, frame(p));
+}
+if (ROOT) {
+  // Aset (CSS, JS, gambar, font) disalin dari versi mockup; awalan path diganti ke akar.
+  const SRC = join(here, "..", "public", "altura-mockup");
+  for (const f of readdirSync(SRC, { withFileTypes: true })) {
+    if (f.name === "index.html" || (f.isDirectory() && !["img", "fonts"].includes(f.name))) continue;
+    cpSync(join(SRC, f.name), join(OUT, f.name), { recursive: true });
+  }
+  for (const f of ["styles.css", "app.js"]) {
+    const p = join(OUT, f);
+    writeFileSync(p, readFileSync(p, "utf8").replaceAll("/altura-mockup/", "/"));
+  }
 }
 console.log(`wrote ${pages.length} pages to ${OUT}`);

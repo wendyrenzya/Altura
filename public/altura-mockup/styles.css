@@ -96,7 +96,7 @@ html.is-leaving .veil, html.is-entering .veil, html.is-revealing .veil { visibil
 .veil span {
   flex: 1;
   background: var(--teal);
-  border-right: 1px solid rgba(155, 184, 165, 0.3);
+  border-right: 1px solid transparent;
   transform: translateY(101%);
 }
 .veil span:last-child { border-right: 0; }

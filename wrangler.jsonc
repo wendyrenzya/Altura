@@ -2,8 +2,11 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "altura",
   "compatibility_date": "2025-10-01",
+  "main": "src/worker.js",
   "assets": {
-    "directory": "./public"
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": true
   },
   "routes": [
     { "pattern": "qilo.one/altura", "zone_name": "qilo.one" },
