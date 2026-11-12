@@ -489,7 +489,7 @@ html:not(.js) .replay { display: none; }
 .js .rv.rv-l { transform: translate3d(-64px, 0, 0); }
 .js .rv.rv-r { transform: translate3d(64px, 0, 0); }
 .js .rv.in { opacity: 1; transform: none; }
-body { overflow-x: clip; }
+html, body { overflow-x: clip; }
 .js .rv-line { transform-origin: 0 50%; }
 
 /* Nomor dan garis pada kepala bagian */
