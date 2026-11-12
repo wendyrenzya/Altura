@@ -139,26 +139,26 @@ const CATS = {
 };
 // Real news, summarised in our own words. Each item links to the original report.
 const ARTICLES = [
-  { cat: "sme", d: "2026-10-29", src: "ANTARA", url: "https://www.antaranews.com/berita/5820291/menteri-umkm-kur-menembus-rp262-triliun-jangkau-lebih-4-juta-debitur",
-    tEn: "KUR reaches Rp262 trillion and more than 4 million borrowers", tId: "KUR tembus Rp262 triliun, jangkau lebih dari 4 juta debitur",
-    xEn: "About 1.6 million are first-time borrowers, and 65.9% of lending went to productive sectors. The SME minister wants to hold the 2027 production target near 65%.",
-    xId: "Sekitar 1,6 juta debitur baru, dan 65,9% penyaluran masuk ke sektor produksi. Menteri UMKM ingin target produksi 2027 tetap sekitar 65%." },
-  { cat: "sme", d: "2026-10-28", src: "Kontan", url: "https://keuangan.kontan.co.id/news/kredit-umkm-tumbuh-27-yoy-september-2026",
-    tEn: "SME credit grows 2.7% year on year in September", tId: "Kredit UMKM tumbuh 2,7% yoy pada September",
-    xEn: "Outstanding SME credit stands at Rp1,539.2 trillion, still short of the 7 to 9% year-end target. Investment credit rose 14.9% while working capital fell 2.6%.",
-    xId: "Kredit UMKM mencapai Rp1.539,2 triliun, masih jauh dari target akhir tahun 7 sampai 9%. Kredit investasi naik 14,9% sementara modal kerja turun 2,6%." },
-  { cat: "policy", d: "2026-10-21", src: "Bisnis.com", url: "https://finansial.bisnis.com/read/20261021/11/2014413/breaking-bank-indonesia-tahan-bi-rate-575-pada-rdg-oktober-2026",
-    tEn: "Bank Indonesia holds its policy rate at 5.75%", tId: "Bank Indonesia menahan BI Rate di 5,75%",
-    xEn: "The October board meeting kept the benchmark rate unchanged, with the rupiah's stability as the central bank's stated focus.",
-    xId: "Rapat Dewan Gubernur Oktober mempertahankan suku bunga acuan, dengan stabilitas rupiah sebagai fokus bank sentral." },
-  { cat: "investment", d: "2026-10-20", src: "CNBC Indonesia", url: "https://www.cnbcindonesia.com/news/20261020102140-4-777745/investasi-ri-tembus-rp5287-t-serap-745-ribu-tenaga-kerja/amp",
-    tEn: "Third-quarter investment reaches Rp528.7 trillion, up 7.6%", tId: "Realisasi investasi kuartal III capai Rp528,7 triliun, naik 7,6%",
-    xEn: "Investment realisation for January to September totals Rp1,539.2 trillion and has absorbed about 2.19 million workers, according to the investment ministry.",
-    xId: "Realisasi investasi Januari sampai September totalnya Rp1.539,2 triliun dan menyerap sekitar 2,19 juta tenaga kerja, menurut Kementerian Investasi." },
-  { cat: "investment", d: "2026-10-01", src: "KabarBursa", url: "https://www.kabarbursa.com/makro/danantara-berencana-gunakan-dividen-untuk-biayai-proyek-hilirisasi",
-    tEn: "Danantara plans to channel dividends into downstreaming projects", tId: "Danantara berencana pakai dividen untuk proyek hilirisasi",
-    xEn: "Its chief operating officer says the Rp120 trillion payment to the state is not yet settled, and that dividends are intended to back projects that create jobs.",
-    xId: "COO Danantara menyebut setoran Rp120 triliun ke negara belum final, dan dividen dimaksudkan mendukung proyek yang membuka lapangan kerja." },
+  { cat: "sme", d: "2026-11-09", src: "Bisnis.com", url: "https://finansial.bisnis.com/read/20261109/90/2019619/kredit-bri-bbri-tumbuh-145-kur-tembus-rp167-triliun",
+    tEn: "BRI lending grows 14.5% as KUR reaches Rp167 trillion", tId: "Kredit BRI tumbuh 14,5%, KUR tembus Rp167 triliun",
+    xEn: "Loans stood at Rp1,647 trillion at the end of September, led by micro, small and medium businesses. SME credit alone reached Rp1,250 trillion.",
+    xId: "Kredit mencapai Rp1.647 triliun per akhir September, didominasi segmen usaha mikro, kecil, dan menengah. Kredit UMKM sendiri mencapai Rp1.250 triliun." },
+  { cat: "investment", d: "2026-11-09", src: "The Jakarta Post", url: "https://asianews.network/?p=313461",
+    tEn: "Indonesia lands US$385 million in AI and industrial deals in the UK", tId: "Indonesia raih komitmen US$385 juta di sektor AI dan industri dari Inggris",
+    xEn: "The deals came out of the Indonesia Investment Forum in London on 5 November, attended by the finance minister, the central bank governor, and the investment minister.",
+    xId: "Kesepakatan ini lahir dari Indonesia Investment Forum di London pada 5 November, yang dihadiri menteri keuangan, gubernur bank sentral, dan menteri investasi." },
+  { cat: "policy", d: "2026-11-05", src: "Bisnis.com", url: "https://finansial.bisnis.com/read/20261105/90/2018802/bisnis-bank-tertekan-bi-rate-kurs-rupiah-nim-turun-ke-429",
+    tEn: "Banks' net interest margin slips to 4.29%", tId: "Margin bunga bersih perbankan turun ke 4,29%",
+    xEn: "OJK says a high policy rate and a weaker rupiah have pushed up funding costs, and expects pressure on margins to continue in the short term.",
+    xId: "OJK menyebut BI Rate yang tinggi dan rupiah yang melemah mendorong naik biaya dana, dan memperkirakan tekanan pada margin berlanjut dalam jangka pendek." },
+  { cat: "sme", d: "2026-11-04", src: "Bisnis.com", url: "https://ekonomi.bisnis.com/read/20261104/12/2018445/menteri-umkm-bakal-audit-besar-besaran-penyaluran-kur",
+    tEn: "SME minister plans a large-scale audit of KUR distribution", tId: "Menteri UMKM akan audit besar-besaran penyaluran KUR",
+    xEn: "One focus of the review is speeding up the move of KUR distribution onto the Sapa UMKM service platform.",
+    xId: "Salah satu fokus evaluasi adalah mempercepat integrasi sistem penyaluran KUR ke platform Sapa UMKM." },
+  { cat: "policy", d: "2026-11-03", src: "OJK", url: "https://www.ojk.go.id/id/berita-dan-kegiatan/siaran-pers/Pages/KSSK-Nov-2026.aspx",
+    tEn: "Financial stability committee strengthens policy coordination", tId: "KSSK perkuat koordinasi dan sinergi kebijakan",
+    xEn: "The committee notes global monetary tightening and a rupiah at Rp18,145 per US dollar on 2 November, and says pressure has risen since October.",
+    xId: "KSSK mencatat pengetatan moneter global dan rupiah di Rp18.145 per dolar AS pada 2 November, serta tekanan yang meningkat sejak Oktober." },
 ];
 
 /* ---------- page frame ---------- */
@@ -410,14 +410,6 @@ const VALUES = [
   ["trending-up", "Direction of growth", "Arah pertumbuhan", "We point investment toward progress and long-term value creation.", "Kami mengarahkan investasi pada kemajuan dan penciptaan nilai jangka panjang."],
   ["shield-check", "Measured claims", "Klaim yang terukur", "We speak about results only when the data is there to support them.", "Kami berbicara tentang hasil hanya ketika datanya ada untuk mendukung."],
 ];
-const TIMELINE = [
-  ["2016", "The company is established.", "Perusahaan didirikan."],
-  ["2018", "First partnership signed in agriculture.", "Kemitraan pertama di bidang pertanian ditandatangani."],
-  ["2020", "A portfolio support team is formed.", "Tim pendukung portofolio dibentuk."],
-  ["2022", "Sustainability reporting begins.", "Pelaporan keberlanjutan dimulai."],
-  ["2024", "Expansion into healthcare and financial services.", "Perluasan ke bidang kesehatan dan jasa keuangan."],
-  ["2026", "Corporate identity v1.0 introduced.", "Identitas korporat v1.0 diperkenalkan."],
-];
 pages.push({
   path: "about/", nav: "about/",
   titleEn: "About | Altura", titleId: "Tentang | Altura",
@@ -447,15 +439,6 @@ pages.push({
         <ul class="grid-ruled grid-2 spaced">
           ${VALUES.map(([i, ten, tid, den, did]) => `<li class="cell">${icon(i, "cell-icon")}<h3>${T(ten, tid)}</h3><p>${T(den, did)}</p></li>`).join("\n          ")}
         </ul>
-      </div>
-    </section>
-
-    <section class="section section-tint">
-      <div class="wrap split">
-        <h2>${T("Our journey", "Perjalanan kami")}</h2>
-        <ol class="timeline">
-          ${TIMELINE.map(([y, en, id]) => `<li><span class="tl-year">${y}</span><p>${T(en, id)}</p></li>`).join("\n          ")}
-        </ol>
       </div>
     </section>
 
