@@ -115,10 +115,10 @@ html.is-entering .veil { animation: veil-failsafe 0s linear 2.5s forwards; }
 
 html.is-revealing .veil span { transform: translateY(-101%); transition-property: transform; transition-duration: 0.55s; transition-timing-function: var(--ease); }
 
-.veil-logo { position: absolute; top: 50%; left: 50%; width: min(62vw, 300px); height: auto; transform: translate(-50%, -50%) scale(0.94); filter: brightness(0) invert(1); opacity: 0; }
-html.is-leaving .veil-logo { opacity: 1; transform: translate(-50%, -50%) scale(1); transition: opacity 0.35s ease 0.3s, transform 0.6s var(--ease) 0.3s; }
-html.is-entering .veil-logo { opacity: 1; transform: translate(-50%, -50%) scale(1); transition: none; }
-html.is-revealing .veil-logo { opacity: 0; transform: translate(-50%, -50%) scale(1.06); transition: opacity 0.3s ease, transform 0.5s var(--ease); }
+.veil-logo { position: absolute; inset: 0; margin: auto; width: min(62vw, 300px); height: auto; transform: scale(0.94); filter: brightness(0) invert(1); opacity: 0; }
+html.is-leaving .veil-logo { opacity: 1; transform: scale(1); transition: opacity 0.35s ease 0.3s, transform 0.6s var(--ease) 0.3s; }
+html.is-entering .veil-logo { opacity: 1; transform: scale(1); transition: none; }
+html.is-revealing .veil-logo { opacity: 0; transform: scale(1.06); transition: opacity 0.3s ease, transform 0.5s var(--ease); }
 
 /* ---------- Catatan mockup ---------- */
 
